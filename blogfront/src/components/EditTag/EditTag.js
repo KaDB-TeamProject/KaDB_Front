@@ -13,13 +13,14 @@ let Container = styled.div`
     justify-content: center;
     align-items: center;
     height: 100vh;
+    width: 100vw;
 
 
 `
 let SettingBox = styled.div`
 
-    width: 40vw;
-    height:50vh;
+    width: 30vw;
+    height:45vh;
     text-align: center;
     background-color: #FFDB31;
     border : 1px solid rgb(233, 243, 40);
@@ -57,11 +58,18 @@ font-size: 20px;
 `
 let HeaderContainer = styled.div`
 
-flex-grow: 10;
+height: 10vh;
 justify-content: center;
 width: 100%;
 display: flex;
 flex-direction: row;
+
+
+`
+
+let InputContainer = styled.div`
+
+height: 30vh;
 
 
 `

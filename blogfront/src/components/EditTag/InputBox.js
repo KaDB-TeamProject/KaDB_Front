@@ -3,11 +3,12 @@ import styled from 'styled-components'
 
 let Input = styled.input`
 
-    width: 60%;
+    width: 25vw;
     height: 60%;
     border: 0;
     border-radius: 10px;
     padding: 10px;
+    outline: none;  
 
 `
 
