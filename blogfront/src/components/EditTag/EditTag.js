@@ -7,6 +7,9 @@ import SubBtn from './SubBtn';
 import styled from 'styled-components'
 import { useNavigate } from 'react-router-dom';
 
+import img from './Source/bgimg.png'
+import MappingContainer from '../Setting/MappingContainer';
+
 let Container = styled.div`
 
     display: flex;
@@ -14,16 +17,18 @@ let Container = styled.div`
     align-items: center;
     height: 100vh;
     width: 100vw;
+    background-image: url(${img});
+    background-size: cover; 
 
 
 `
 let SettingBox = styled.div`
 
+
     width: 30vw;
-    height:45vh;
+    height:50vh;
     text-align: center;
-    background-color: #FFDB31;
-    border : 1px solid rgb(233, 243, 40);
+    background-color: #F28ECA;
     border-radius : 20px;
 
 
@@ -85,10 +90,12 @@ function EditTag() {
         <>
             <Container>
                 {/* setting할 수 있는 메뉴를 불러오는데 props를 이용하여 설정 */}
-                <SettingBox>
 
+                
+                <SettingBox>
+                <MappingContainer />
                 <HeaderContainer>
-                        <H>비밀번호 재설정</H>
+                        <H>선호 태그 재설정</H>
                         <ImgBox>
                         <BackImg src={settingImg} onClick={()=>{navi("/setting")}}/>
                         </ImgBox>

@@ -5,6 +5,9 @@ import pwImg from './Source/lock.png'
 import settingImg from '../Setting/Source/settings.png'
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import img1 from './Source/bgimg.png'
+import MappingContainer from '../Setting/MappingContainer';
+
 
 let Container = styled.div`
 
@@ -13,6 +16,8 @@ let Container = styled.div`
     align-items: center;
     height: 100vh;
     width: 100vw;
+    background-image: url(${img1});
+    background-size: cover; 
 
 `
 
@@ -21,7 +26,7 @@ let Container = styled.div`
 let PWContainer = styled.div`
 
     width: 30vw;
-    height: 45vh;
+    height: 50vh;
     text-align: center;
     background-color: #5AD2FF;
     border : 1x solid rgb(233, 243, 40);
@@ -144,6 +149,8 @@ font-size: 20px;
 
 `
 
+
+
 function PWBox() {
 
     const curPW = "1q2w3e4r!";
@@ -231,6 +238,7 @@ function PWBox() {
                 <PWContainer>
 
 
+                    <MappingContainer />
                     <HeaderContainer>
                         <H>비밀번호 재설정</H>
                         <ImgBox>
