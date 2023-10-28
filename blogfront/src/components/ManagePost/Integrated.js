@@ -86,7 +86,7 @@ padding: 10px 20px;
 
 const PostItemBox = styled.div`
 background-color: #FFFFFF;
-padiing: 20px;
+padding: 20px;
 `;
 
 const PostItem = styled.div`
@@ -147,7 +147,7 @@ function ManagePost() {
                             비행 3시간 전에 도착을 해야 하기 때문에, 8시에 출발하는 막차를 타고 9시쯤 도착해 체크인을 마쳤습니다.
                             마침내 0시 20분 비행기에 탑승하였고, 0시 55분 비행기는 이륙했습니다!
                         </PostItem>
-                        <AddPhoto src = "addphoto.jpg"/>
+                        <Addphoto src = "addphoto.jpg"/>
                     </PostItemBox>
                 <TagButton>#태그 추가</TagButton>
                 <DetailButton>이동수단 추가</DetailButton>
