@@ -1,18 +1,23 @@
 import React from 'react'
 import styled from 'styled-components'
-const Div = styled.div`
+const MenuDiv = styled.div`
     text-align : center;
-    font-size : 0.4rem;
     color : white;
     margin-top : 1rem;
-    margin-botton : 1rem;
+`
+const MenuImg = styled.img`
+    width : 2rem;
+    height : 2rem;
+`
+const MenuText = styled.div`
+    font-size : 0.7rem;
 `
 function MenuButton (props){
     return(
-        <Div>
-            <img src={props.src}/>
-            <p>{props.text}</p>
-        </Div>
+        <MenuDiv>
+            <MenuImg src={props.src}/>
+            <MenuText>{props.text}</MenuText>
+        </MenuDiv>
     )
 }
 export default MenuButton;
