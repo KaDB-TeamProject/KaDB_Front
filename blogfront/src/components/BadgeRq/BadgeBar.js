@@ -4,6 +4,9 @@ import img2 from './Source/inf.png'
 import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import settingImg from '../Setting/Source/settings.png'
+import img from './Source/bgimg.png'
+import MappingContainer from '../Setting/MappingContainer'
+
 
 let Container = styled.div`
   display: flex;
@@ -11,16 +14,18 @@ let Container = styled.div`
   align-items: center;
   height: 100vh;
   width: 100vw;
+  background-image: url(${img});
+    background-size: cover; 
 
 
 `
 let SettingBox = styled.div`
 
     width: 30vw;
-  height: 45vh;
+  height: 50vh;
   text-align: center;
-  background-color: #FFDB31;
-  border: 1px solid rgb(233, 243, 40);
+  background-color: #D376F3;
+ 
   border-radius: 20px;
 
 `
@@ -87,13 +92,13 @@ width: 70%;
 `
 let Image = styled.img`
 
-width: 30%;
+width: 40%;
   height: auto;
   margin: 10px;
 
 &:hover{
 
-    width: 45%;
+    width: 50%;
   height: auto;
   margin: 10px;
   transition: all 1s;
@@ -141,10 +146,13 @@ function BadgeBar() {
         <>
             <Container>
                 {/* setting할 수 있는 메뉴를 불러오는데 props를 이용하여 설정 */}
-                <SettingBox>
 
+
+                <SettingBox>
+                <MappingContainer />
                 <HeaderContainer>
-                        <H>비밀번호 재설정</H>
+                  
+                        <H>Badge 신청</H>
                         <ImgBox2>
                         <BackImg src={settingImg} onClick={()=>{navi("/setting")}}/>
                         </ImgBox2>
