@@ -1,17 +1,28 @@
 import styled from "styled-components";
 
-const Div = styled.div`
+const ProfileDiv = styled.div`
     text-align : center;
     color : white;
-    font-size : 0.7rem;
+    flex-grow:1;
+    margin-top:2rem;
+`
+const ProfileImg = styled.img`
+    width : 5rem;
+    height : 5rem;
+    border-radius : 50%;
+    background-color : white;
+`
+const ProfileName = styled.p`
+    font-weight : bold;
+    font-size : 1rem;
 `
 
 function Profile(props){
     return(
-        <Div>
-            <img src={props.src}/>
-            <p>{props.text}</p>
-        </Div>
+        <ProfileDiv>
+            <ProfileImg src={props.src}/>
+            <ProfileName>{props.text}</ProfileName>
+        </ProfileDiv>
     )
 }
 export default Profile;
