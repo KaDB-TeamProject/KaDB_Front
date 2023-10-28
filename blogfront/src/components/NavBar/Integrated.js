@@ -53,8 +53,8 @@ function NavBar(){
                 <MenuButton text="SEARCH" src={searchIcon} onClick={()=>{setToggleSearch(!toggleSearch)}}/>
             </MenuDiv>
             <SignDiv>
-                <SignButton text="Sign In"/>
-                <SignButton text="Sign Up"/>
+                <SignButton text="Sign In" onClick={()=>navigate('/login')}/>
+                <SignButton text="Sign Up" onClick={()=>navigate('/signup')}/>
             </SignDiv>
         </BackDiv>
     )
