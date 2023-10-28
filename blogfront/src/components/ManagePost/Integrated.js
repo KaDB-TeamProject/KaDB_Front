@@ -95,17 +95,8 @@ margin-left: 1000px;
 `;
 
 const PostItemBox = styled.div`
-  background-color: #FFFFFF;
-  margin-left: 20px;
-  border-radius: 10px;
-`;
-
-const PostItemTitle = styled.div`
-  font-family: KakaoBold;
-  font-size: 12pt;
-  font-weight: bold;
-  margin-left: 20px;
-  margin-top: 10px;
+background-color: #FFFFFF;
+padiing: 20px;
 `;
 
 const PostItem = styled.div`
