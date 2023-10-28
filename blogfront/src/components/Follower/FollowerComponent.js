@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import bg from './Source/bgimg.png'
+
 
 let FollowerContainer = styled.div`
 
