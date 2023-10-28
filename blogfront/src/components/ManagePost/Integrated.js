@@ -86,7 +86,7 @@ padding: 10px 20px;
 
 const PostItemBox = styled.div`
 background-color: #FFFFFF;
-padiing: 20px;
+padding: 20px;
 `;
 
 const PostItem = styled.div`
