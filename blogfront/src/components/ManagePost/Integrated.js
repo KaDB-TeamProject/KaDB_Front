@@ -19,20 +19,21 @@ font-size: 12pt;
 font-family: KakaoBold;
 color: #FFFFFF;
 font-weight: bold;
-margin-left: 20px;
-margin-top: 10px;
+margin-left: 60px;
+margin-top: 13px;
 `;
 
 const CategorySelect = styled.select`
-  width: 100%;
   color: #000000;
   background-color: #FFFFFF;
-  padding: 5px;
+  padding: 5px 10px;
   border: none;
   border-radius: 50px;
   margin: 10px 0;
   margin-left: 20px;
   margin-top: 10px;
+  font-family: KakaoRegular;
+  font-size: 10pt;
 `;
 
 const SectionHeader = styled.div`
@@ -41,62 +42,89 @@ font-family: KakaoBold;
 color: #FFFFFF;
 font-weight: bold;
 text-decoration: 2px yellow underline;
-margin-left: 20px;
+margin-left: 80px;
 margin-top: 10px;
 `;
 
 const SectionBox = styled.div`
   background-color: #FFFFFF;
   padding: 20px;
-  margin: 10px 0;
+  margin: 10px 80px;
   border-radius: 50px;
+  font-family: KakaoBold;
+  font-size: 10pt;
+  font-weight: bold;
 `;
 
 const Posts = styled.div`
   display: flex;
-  margin-top: 10px;
+  margin-top: 20px;
   flex-direction: column;
   background-color: #FFFFFF;
-  margin-left: 20px;
+  margin-left: 80px;
+  margin: 10px 80px;
   border-radius: 10px;
   align-items: center;
+
 `;
 
 const PostBox = styled.div`
   margin-top: 10px;
   background-color: #F2F2F2;
   margin-left: 20px;
-  margin-top: 10px;
+  margin: 20px 20px;
+  margin-top: 25px;
   border-radius: 10px;
-`;
-
-const Titles = styled.div`
-  display: flex;
-  flex-direction: row;
-  margin-left: 20px;
+  position: relative;
 `;
 
 const PostBoxTitle = styled.div`
+  font-size: 12pt;
+  font-family: KakaoBold;
+  color: #FFFFFF;
+  font-weight: bold;
+  text-decoration: 2px yellow underline;
+  margin-left: 80px;
+  margin-top: 20px;
+`;
+
+const PostTitle = styled.div`
   font-family: KakaoBold;
   font-size: 12pt;
   font-weight: bold;
   margin-left: 20px;
-  margin-top: 10px;
+  margin-top: 20px;
+  margin: 20px 20px;
+  color: #000000;
 `;
 
 const SaveButton = styled.button`
-background-color: #FBFB49;
-color: #000000;
-font-family: KakaoRegular;
-font-size: 10pt;
-padding: 10px 20px;
-border-radius: 50px;
-margin-left: 1000px;
+  background-color: #FBFB49;
+  color: #000000;
+  border-radius: 50px;
+  padding: 6px 12px;
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  z-index: 1;
+  font-family: KakaoRegular;
+  font-size: 9pt;
 `;
 
 const PostItemBox = styled.div`
-background-color: #FFFFFF;
-padding: 20px;
+  background-color: #FFFFFF;
+  margin-left: 20px;
+  margin-top: 20px;
+  margin: 20px 20px;
+  border-radius: 10px;
+`;
+
+const PostItemTitle = styled.div`
+  font-family: KakaoBold;
+  font-size: 12pt;
+  font-weight: bold;
+  margin-left: 20px;
+  margin-top: 20px;
 `;
 
 const PostItem = styled.div`
@@ -160,6 +188,7 @@ let PostItemTitle = styled.div`
 function ManagePost() {
   return (
     <Container>
+      <Categories>
         <CategoryHeader>CATEGORY</CategoryHeader>
         <CategorySelect>
           <option>국내여행</option>
@@ -170,15 +199,14 @@ function ManagePost() {
           <option>오스트리아여행</option>
           <option>남/북극여행</option>
         </CategorySelect>
+      </Categories>
         <SectionHeader>SCHEDULE</SectionHeader>
         <SectionBox>Europe 2019.07.07 ~ 2019.08.13 영국 아일랜드 프랑스 스위스 오스트리아 체코</SectionBox>
         <PostBoxTitle>POST</PostBoxTitle>
             <Posts>
                 <PostBox>
-                  <Titles>
-                    <PostBoxTitle>1일차 인천 - 런던</PostBoxTitle>
+                    <PostTitle>1일차 인천 - 런던</PostTitle>
                     <SaveButton>저장</SaveButton>
-                    </Titles>
                     <PostItemBox>
 
                         <PostItem>
