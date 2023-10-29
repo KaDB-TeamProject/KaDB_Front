@@ -153,6 +153,9 @@ const AddButton = styled.button`
   justify-content: center;
   align-items: center;
 `;
+let PostItemTitle = styled.div`
+
+`
 
 function ManagePost() {
   return (
