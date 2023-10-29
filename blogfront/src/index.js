@@ -15,8 +15,8 @@ import PlaceInfo from './components/PlaceInfo/Integrated';
 import IndividualBlogHome from './components/IndividualBlogHome/Integrated';
 import IndividualBlogPost from './components/IndividualBlogPost/Integrated';
 import Setting from './components/Setting/Integrated'
-import Follower from './components/Follower/Integrated'
-import Following from './components/Following/Integrated'
+import Follower from './components/Follow/Follower/Integrated'
+import Following from './components/Follow/Following/Integrated'
 import PWResetS from './components/PWResetS/Integrated'
 import BadgeRq from './components/BadgeRq/Integrated'
 import EditTag from './components/EditTag/Integrated'
