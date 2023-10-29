@@ -181,6 +181,9 @@ const AddButton = styled.button`
   justify-content: center;
   align-items: center;
 `;
+let PostItemTitle = styled.div`
+
+`
 
 function ManagePost() {
   return (
@@ -205,7 +208,7 @@ function ManagePost() {
                     <PostTitle>1일차 인천 - 런던</PostTitle>
                     <SaveButton>저장</SaveButton>
                     <PostItemBox>
-                      <PostItemTitle>인천 국제 공항 - 비용 12,000원</PostItemTitle>
+
                         <PostItem>
                             공항으로 가는 길은 언제나 설레요... 저는 항상 출국하는 날에는 설레서 잠을 못이룹니다.
                             비행 3시간 전에 도착을 해야 하기 때문에, 8시에 출발하는 막차를 타고 9시쯤 도착해 체크인을 마쳤습니다.
