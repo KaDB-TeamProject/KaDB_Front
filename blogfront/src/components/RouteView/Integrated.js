@@ -73,37 +73,41 @@ const Posts = styled.div`
   margin-top: 10px;
   flex-direction: column;
   background-color: #FFFFFF;
-  margin-left: 80px;
-  margin-right: 80px;
+  margin-left: 100px;
+  margin-right: 100px;
+  margin: 20px 100px;
   border-radius: 10px;
 `;
 
 const PostBox = styled.div`
-  margin-top: 40px;
+  margin-top: 30px;
   background-color: #F2F2F2;
-  margin-left: 40px;
+  margin-left: 20px;
+  margin: 20px 20px;
   border-radius: 10px;
-  margin-right: 40px;
+  padding: 10px 20px;
 `;
 
 const PostBoxTitle = styled.div`
   font-family: KakaoBold;
   font-size: 12pt;
   font-weight: bold;
-  margin-left: 40px;
-  margin-top: 40px;
+  margin-left: 20px;
+  margin-top: 10px;
+  margin: 20px 20px;
 `;
 
 
 const PostItemBox = styled.div`
   background-color: #FFFFFF;
-  margin-left: 40px;
-  margin-right: 40px;
+  margin-left: 20px;
   border-radius: 10px;
   margin-top: 20px;
   display: flex;
   flex-direction: row;
   position: relative;
+  padding: 20px 20px;
+  margin: 30px 20px;
 `;
 
 const PostItemimage = styled.img`
@@ -129,10 +133,10 @@ const PostItemTitle = styled.div`
 
 const PostItem = styled.div`
   font-family: KakaoRegular;
-  font-size: 8pt;
+  font-size: 9pt;
   color: #000000;
   margin-left: 25px;
-  margin-top: 8px;
+  margin-top: 10px;
 `;
 
 const SummaryItem = styled.div`
@@ -141,8 +145,8 @@ const SummaryItem = styled.div`
   color: #000000;
   font-weight: bold;
   position: absolute;
-  bottom: 8px;
-  right: 15px;
+  bottom: 10px;
+  right: 20px;
   `;
 
   function RouteView() {
