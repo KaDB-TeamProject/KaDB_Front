@@ -8,7 +8,7 @@ import Map from "./Map";
 import Head from "./Head";
 
 const MainDiv = styled.div`
-    width: 100%;
+    width: 50rem;
 `
 const ContentsDiv = styled.div`
     background-color: white;
@@ -20,22 +20,21 @@ function Main() {
         {
             img : user,
             name : 'Lion_Trip',
-            followers : '33000',
+            followers : 33000,
         },
         {
             img : user,
             name : 'choonsigi',
-            followers : '28000',
+            followers : 28000,
         },
         {
             img : user,
             name : 'tough_Cookie',
-            followers : '18000',
+            followers : 18000,
         },
     ]
     const hotposts = [
         {
-            
         }
     ]
     return (
