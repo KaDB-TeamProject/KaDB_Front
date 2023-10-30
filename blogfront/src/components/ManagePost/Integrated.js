@@ -18,7 +18,6 @@ const CategoryHeader = styled.div`
 font-size: 12pt;
 font-family: KakaoBold;
 color: #FFFFFF;
-font-weight: bold;
 margin-left: 60px;
 margin-top: 25px;
 `;
@@ -159,7 +158,7 @@ const AddImage = styled.img`
   margin-right: auto;
 `;
 
-const Manages  = styled.div`
+const Manages = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -202,7 +201,6 @@ const AddButton = styled.button`
   align-items: center;
   margin-bottom: 20px;
   font-family: KakaoBold;
-  font-weight: bold;
   font-size: 10pt;
 `;
 
@@ -221,32 +219,32 @@ function ManagePost() {
           <option>남/북극여행</option>
         </CategorySelect>
       </Categories>
-        <ScheduleTitle>SCHEDULE</ScheduleTitle>
-        <ScheduleBox>Europe 2019.07.07 ~ 2019.08.13 영국 아일랜드 프랑스 스위스 오스트리아 체코</ScheduleBox>
-        <PostTitle>POST</PostTitle>
-            <Posts>
-                <PostBox>
-                    <PostBoxTitle>1일차 인천 - 런던</PostBoxTitle>
-                    <SaveButton>저장</SaveButton>
-                    <PostItemBox>
+      <ScheduleTitle>SCHEDULE</ScheduleTitle>
+      <ScheduleBox>Europe 2019.07.07 ~ 2019.08.13 영국 아일랜드 프랑스 스위스 오스트리아 체코</ScheduleBox>
+      <PostTitle>POST</PostTitle>
+      <Posts>
+        <PostBox>
+          <PostBoxTitle>1일차 인천 - 런던</PostBoxTitle>
+          <SaveButton>저장</SaveButton>
+          <PostItemBox>
 
-                        <PostItem>
-                            공항으로 가는 길은 언제나 설레요... 저는 항상 출국하는 날에는 설레서 잠을 못이룹니다.
-                            비행 3시간 전에 도착을 해야 하기 때문에, 8시에 출발하는 막차를 타고 9시쯤 도착해 체크인을 마쳤습니다.
-                            마침내 0시 20분 비행기에 탑승하였고, 0시 55분 비행기는 이륙했습니다!
-                        </PostItem>
-                        <AddImageBox>
-                          <AddImage src="AddImg.jpg" alt = "AddImg" />
-                        </AddImageBox>
-                    </PostItemBox>
-                <Manages>
-                <TagButton>#태그 추가</TagButton>
-                <ManageButton>이동수단 추가</ManageButton>
-                <ManageButton>장소 추가</ManageButton>
-                </Manages>
-                </PostBox>
-                <AddButton>일정 추가하기</AddButton>
-              </Posts>
+            <PostItem>
+              공항으로 가는 길은 언제나 설레요... 저는 항상 출국하는 날에는 설레서 잠을 못이룹니다.
+              비행 3시간 전에 도착을 해야 하기 때문에, 8시에 출발하는 막차를 타고 9시쯤 도착해 체크인을 마쳤습니다.
+              마침내 0시 20분 비행기에 탑승하였고, 0시 55분 비행기는 이륙했습니다!
+            </PostItem>
+            <AddImageBox>
+              <AddImage src="AddImg.jpg" alt="AddImg" />
+            </AddImageBox>
+          </PostItemBox>
+          <Manages>
+            <TagButton>#태그 추가</TagButton>
+            <ManageButton>이동수단 추가</ManageButton>
+            <ManageButton>장소 추가</ManageButton>
+          </Manages>
+        </PostBox>
+        <AddButton>일정 추가하기</AddButton>
+      </Posts>
     </Container>
   );
 }
