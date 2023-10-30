@@ -39,6 +39,8 @@ async function postsignup(id, password,email,phonenum,birthday){
     })
     .catch((error)=>{
         console.log('signup axios post 에러 : ' + error)
+        console.log(id)
+        console.log(phonenum)
     })
 }
 function SignUp(){
