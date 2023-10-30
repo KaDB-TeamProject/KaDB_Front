@@ -13,6 +13,7 @@ const SiteName = styled.h1`
  color: #FAF4C0;
  margin-top: 10px;
  margin-left: 20px;
+ font-weight: bold;
 `;
 
 const BlogDescription = styled.div`
@@ -36,7 +37,7 @@ const ScheduleTitle = styled.div`
   color: #FFFFFF;
   font-weight: bold;
   text-decoration: 2px yellow underline;
-  margin-left: 20px;
+  margin-left: 120px;
   margin-top: 30px;
 `;
 
@@ -44,33 +45,37 @@ const ScheduleTitle = styled.div`
 const ScheduleBox = styled.div`
   background-color: #FFFFFF;
   color: #000000;
-  padding: 20px;
+  padding: 20px 100px;
   border-radius: 50px;
   margin: 20px 10px;
   font-family: KakaoBold;
   font-size: 10pt;
   font-weight: bold;
+  margin-left: 80px;
 `;
 
 const Copybutton = styled.button`
   background-color: #FFFFFF;
   color: #000000;
   font-family: KakaoBold;
-  font-size: 12pt;
+  font-size: 10pt;
   border-radius: 50px;
-  padding: 2opx;
+  padding: 20px 40px;
   margin: 20px 10px;
   font-weight: bold;
   text-shadow: 2px 2px 2px gray;
+  position: absolute;
+  right: 90px;
 `;
 
-const Posttitle = styled.div`
+const PostTitle = styled.div`
   font-size: 12pt;
   font-family: KakaoBold;
   color: #FFFFFF;
   font-weight: bold;
   text-decoration: 2px yellow underline;
-  margin-left: 20px;
+  margin-left: 120px;
+  margin-top: 20px;
 `;
 
 const Posts = styled.div`
@@ -78,17 +83,20 @@ const Posts = styled.div`
   margin-top: 10px;
   flex-direction: column;
   background-color: #FFFFFF;
-  margin-left: 20px;
+  margin: 20px 20px;
+  margin-left: 100px;
+  margin-right: 100px;
   border-radius: 10px;
-  align-items: center;
+  padding: 10px 10px;
 `;
 
 const PostBox = styled.div`
-  margin-top: 10px;
+  margin-top: 20px;
   background-color: #F2F2F2;
   margin-left: 20px;
-  margin-top: 10px;
   border-radius: 10px;
+  margin: 20px 20px;
+  padding: 10px 10px;
 `;
 
 const PostBoxTitle = styled.div`
@@ -96,13 +104,17 @@ const PostBoxTitle = styled.div`
   font-size: 12pt;
   font-weight: bold;
   margin-left: 20px;
-  margin-top: 10px;
+  margin-top: 20px;
+  margin: 20px 22px;
 `;
 
 const PostItemBox = styled.div`
   background-color: #FFFFFF;
   margin-left: 20px;
+  margin-top: 20px;
+  margin: 20px 20px;
   border-radius: 10px;
+  padding: 10px 10px;
 `;
 
 const PostItemTitle = styled.div`
@@ -111,6 +123,7 @@ const PostItemTitle = styled.div`
   font-weight: bold;
   margin-left: 20px;
   margin-top: 10px;
+  margin: 10px 20px;
 `;
 
 const PostItem = styled.div`
@@ -118,12 +131,13 @@ const PostItem = styled.div`
   font-size: 10pt;
   color: #000000;
   margin-left: 20px;
+  margin: 20px 22px;
 `;
 
 const PostItemImage = styled.img`
-  width: 150px;
-  height: 100px;
-  margin-top: 10px;
+  width: 200px;
+  height: 150px;
+  margin-top: 20px;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -134,6 +148,8 @@ const SummaryItem = styled.div`
   font-size: 12pt;
   font-weight: bold;
   text-align: center;
+  margin-top: 20px;
+  margin: 20px auto;
 `;
 
 const Tags = styled.div`
@@ -141,6 +157,7 @@ const Tags = styled.div`
   margin-top: 20px;
   margin-left: 20px;
   flex-direction: row;
+  margin: 10px 20px;
 `;
 
 const TagBox = styled.div`
@@ -153,10 +170,68 @@ const TagBox = styled.div`
   margin-left: 10px;
 `;
 
+const subs = styled.div`
+  margin-top: 20px;
+  display: flex;
+  flex: row;
+  position: absolute;
+`;
+
+const HeartButton = styled.button`
+  background-color: #FFD9FA;
+  font-family: KakaoRegular;
+  font-size: 10pt;
+  padding: 10px 20px;
+  border-radius: 50px;
+  margin-left: 10px;
+  color: #000000;
+`;
+
+const HideButton = styled.button`
+  background-color: #FFFFFF;
+  color: #000000;
+  font-size: 10pt;
+  padding: 10px 20px;
+  border-radius: 50px;
+  position: absolute;
+  right: 10px;
+  margin-right: 10px;
+`;
+
+const CommentBox = styled.div`
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  margin: 20px 20px;
+  padding: 20px 20px;
+  display: flex;
+  flex: column;
+`;
+
+const Comments = styled.div`
+  background-color: #FFFFFF;
+  border-radius: 50px;
+  margin: 20px 20px;
+  padding: 20px 20px;
+  display: flex;
+  flex: row;
+`;
+
+const Profile = styled.img`
+  weight: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin: 10px 10px;
+`;
+
+const CommentItem = styled.div`
+  color: #000000;
+  font-family: KakaoRegular;
+  font-size: 10pt;
+  margin: 20px 20px;
+`;
 
 function IndividualBlogPost() {
   return (
-
     <Container>
       <div>
         <div>
@@ -172,7 +247,7 @@ function IndividualBlogPost() {
         </Schedule>
         </div>
         <div>
-        <Posttitle>POST</Posttitle>
+        <PostTitle>POST</PostTitle>
         <Posts>
           <PostBox>
             <PostBoxTitle>1일차 인천 - 런던</PostBoxTitle>
@@ -198,6 +273,24 @@ function IndividualBlogPost() {
             </Tags>
           </PostBox>
         </Posts>
+        <subs>
+          <HeartButton></HeartButton>
+          <HideButton>댓글 숨기기</HideButton>
+        </subs>
+        <CommentBox>
+          <Comments>
+            <Profile src="Profile1.jpg" alt="Profile1"/>
+            <CommentItem>정말 좋은 글이네요! 다음에 한번 이 루트로 이용해볼게요</CommentItem>
+          </Comments>
+          <Comments>
+            <Profile src="Profile2.jpg" alt="Profile2"/>
+            <CommentItem>정말 좋은 글이네요! 다음에 한번 이 루트로 이용해볼게요</CommentItem>
+          </Comments>
+          <Comments>
+            <Profile src="Profile3.jpg" alt="Profile3"/>
+            <CommentItem>정말 좋은 글이네요! 다음에 한번 이 루트로 이용해볼게요</CommentItem>
+          </Comments>
+        </CommentBox>
       </div>
       </div>
     </Container>

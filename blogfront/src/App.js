@@ -8,9 +8,9 @@ const AppDiv = styled.div`
   background-color: #f2f2f2;
 `
 const OutletDiv = styled.div`
-  margin-left: auto;
-  margin-right: auto;
+  flex-grow: 1;
 `
+export const url = "http://localhost:8081/"
 function App() {
   return (
     <AppDiv>
