@@ -11,6 +11,7 @@ const OutletDiv = styled.div`
   margin-left: auto;
   margin-right: auto;
 `
+export const url = "http://localhost:8081/"
 function App() {
   return (
     <AppDiv>
