@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -114,6 +115,9 @@ const PostTags = styled.div`
 `;
 
 function IndividualBlogHome() {
+
+const navi = useNavigate();
+
   return (
 
     <Container>
@@ -178,15 +182,15 @@ function IndividualBlogHome() {
       <div>
       <PopularPostTitle>Popular Post</PopularPostTitle>
       <PopularPostsBox>
-        <PopularPost>
+        <PopularPost onClick={()=>{navi("/blogpost")}}>
           <PostImage src="유럽.jpg" alt="Europe" />
           <PostTags>#UK #FRANCE</PostTags>
         </PopularPost>
-        <PopularPost>
+        <PopularPost onClick={()=>{navi("/blogpost")}}>
           <PostImage src="뉴질랜드.jpg" alt="New Zealand" />
           <PostTags>#NEW ZEALAND</PostTags>
         </PopularPost>
-        <PopularPost>
+        <PopularPost onClick={()=>{navi("/blogpost")}}>
           <PostImage src="싱가포르.jpg" alt="Singapore" />
           <PostTags>#SINGAPORE</PostTags>
         </PopularPost>
