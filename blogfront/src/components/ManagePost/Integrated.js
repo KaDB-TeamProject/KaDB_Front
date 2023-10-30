@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import AddCity from '../EnrollPost/AddCity/Integrated'
 import { useState } from 'react';
 import AddPlace from '../EnrollPost/AddPlace/Integrated'
+import AddTransport from '../EnrollPost/AddTransport/Integrated'
 
 const Container = styled.div`
   display: flex;
@@ -211,13 +212,24 @@ function ManagePost() {
 
   const [click, setClick] = useState(false);
   const [click2, setClick2] = useState(false);
+  const [click3, setClick3] = useState(false);
 
   const closeWindow = (val) => {
+
     setClick(val)
+
+
   }
 
   const closeWindow2 = (val) => {
+
     setClick2(val)
+
+
+  }
+  const closeWindow3 = (val) => {
+
+    setClick3(val)
   }
 
   return (
@@ -254,21 +266,31 @@ function ManagePost() {
           </PostItemBox>
           <Manages>
             <TagButton>#태그 추가</TagButton>
-            <ManageButton>이동수단 추가</ManageButton>
+            <ManageButton onClick={() => {
+
+              setClick3(true)
+              setClick(false)
+              setClick2(false)
+
+            }}>이동수단 추가</ManageButton>
             <ManageButton onClick={() => {
               setClick2(true)
               setClick(false)
+              setClick3(false)
             }}>장소 추가</ManageButton>
 
           </Manages>
         </PostBox>
         <AddButton onClick={() => {
+
           setClick(true)
           setClick2(false)
+          setClick3(false)
 
         }}>일정 추가하기</AddButton>
         {click && <AddCity closeWindow={closeWindow} />}
         {click2 && <AddPlace closeWindow2={closeWindow2} />}
+        {click3 && <AddTransport closeWindow3={closeWindow3}/>}
       </Posts>
     </Container>
   );
