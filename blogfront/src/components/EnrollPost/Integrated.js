@@ -76,7 +76,19 @@ const AddButton = styled.button`
   align-items: center;
   font-family: KakaoBold;
   font-size: 10pt;
+`
+const SaveButton = styled.button`
+  background-color: #FBFB49;
+  border-radius: 50px;
+  padding: 10px 20px;
+  position: absolute;
+  top: 2rem;
+  right: 3rem;
+  font-family: KakaoBold;
+  font-size: 10pt;
+  border: none;
 `;
+
 const categoryList = [
   '국내여행', '유럽여행', '아시아여행', '아메리카여행', '아프리카여행', '오스트리아여행', '남/북극여행'
 ]
@@ -99,6 +111,7 @@ function EnrollPost() {
   }
   return (
     <Container>
+      <SaveButton>저장</SaveButton>
       <div>
         <Categories>
           <SectionHeader>CATEGORY</SectionHeader>

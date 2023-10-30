@@ -2,9 +2,7 @@ import styled from "styled-components";
 
 const PostBox = styled.div`
   background-color: #F2F2F2;
-  margin-left: 20px;
   margin: 20px 20px;
-  margin-top: 30px;
   border-radius: 10px;
   position: relative;
   padding: 10px 20px;
@@ -12,26 +10,9 @@ const PostBox = styled.div`
 const PostBoxTitle = styled.div`
   font-family: KakaoBold;
   font-size: 12pt;
-  font-weight: bold;
-  margin-left: 20px;
-  margin-top: 10px;
   margin: 20px 20px;
 `;
 
-const SaveButton = styled.button`
-  background-color: #FBFB49;
-  color: #000000;
-  border-radius: 50px;
-  padding: 10px 20px;
-  position: absolute;
-  top: 22px;
-  right: 40px;
-  z-index: 1;
-  font-family: KakaoBold;
-  font-size: 10pt;
-  font-weight: bold;
-  border: none;
-`;
 const DelButton = styled.button`
   background-color: transparent;
   padding: 10px 20px;
@@ -44,7 +25,6 @@ const DelButton = styled.button`
     cursor: pointer;
   }
 `
-
 const PostItemBox = styled.div`
   background-color: #FFFFFF;
   margin-left: 20px;
@@ -88,9 +68,7 @@ const Manages = styled.div`
 
 const TagButton = styled.button`
   background-color: #1EFFF1;
-  color: #000000;
   font-family: KakaoBold;
-  font-weight: bold;
   font-size: 10pt;
   padding: 10px 20px;
   border-radius: 50px;
@@ -110,18 +88,17 @@ const ManageButton = styled.button`
   border: none;
   border-radius: 50px;
   margin-left: 10px;
-`;
+`
 
 function AddSchedule(props) {
     return (
         <PostBox>
-            <PostBoxTitle>{props.id+1}일차 인천 - 런던</PostBoxTitle>
+            <PostBoxTitle>{props.id+1}일차</PostBoxTitle>
             <DelButton onClick={()=>{props.delete(props.id)}}>&#10060;</DelButton>
             <PostItemBox>
+                
                 <PostItem>
-                    공항으로 가는 길은 언제나 설레요... 저는 항상 출국하는 날에는 설레서 잠을 못이룹니다.
-                    비행 3시간 전에 도착을 해야 하기 때문에, 8시에 출발하는 막차를 타고 9시쯤 도착해 체크인을 마쳤습니다.
-                    마침내 0시 20분 비행기에 탑승하였고, 0시 55분 비행기는 이륙했습니다!
+                  <textarea></textarea>
                 </PostItem>
                 <AddImageBox>
                     <AddImage src="AddImg.jpg" alt="AddImg" />
