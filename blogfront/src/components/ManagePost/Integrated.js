@@ -21,7 +21,6 @@ const CategoryHeader = styled.div`
 font-size: 12pt;
 font-family: KakaoBold;
 color: #FFFFFF;
-font-weight: bold;
 margin-left: 60px;
 margin-top: 25px;
 `;
@@ -162,7 +161,7 @@ const AddImage = styled.img`
   margin-right: auto;
 `;
 
-const Manages  = styled.div`
+const Manages = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -205,7 +204,6 @@ const AddButton = styled.button`
   align-items: center;
   margin-bottom: 20px;
   font-family: KakaoBold;
-  font-weight: bold;
   font-size: 10pt;
 `;
 

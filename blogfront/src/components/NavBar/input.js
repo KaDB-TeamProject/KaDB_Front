@@ -7,9 +7,31 @@ const InputDiv = styled.div`
     background-color: white;
     left : 3.5rem;
     top : 2rem;
-    clip-path: polygon(100% 0, 100% 100%, 15% 100%, 15% 50%, 0 0);
     border-radius: 30px;
     border: 1px solid black;
+    &::after{
+        border-color: white transparent;
+        border-style: solid;
+        border-width: 0 6px 8px 6px;
+        content: '';
+        display: block;
+        left:0;
+        position: absolute;
+        top:0;
+        z-index: 10;
+    }
+    &::before{
+        border-color : gray transparent;
+        border-style: solid;
+        border-width: 0 6px 8px 6.5px;
+        content: '';
+        display: block;
+        left: 0;
+        position: absolute;
+        top:-2px;
+        width: 0;
+        z-index: 9;
+    }
 `
 const InputInput = styled.input`
     position: absolute;
