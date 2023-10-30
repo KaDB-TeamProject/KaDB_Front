@@ -1,11 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
-
+import AddCity from '../EnrollPost/AddCity/Integrated'
+import { useState } from 'react';
+import AddPlace from '../EnrollPost/AddPlace/Integrated'
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
   background-color: #CF6E36;
+  position: relative;
 `;
 
 const Categories = styled.div`
@@ -207,6 +210,24 @@ const AddButton = styled.button`
 `;
 
 function ManagePost() {
+
+const [click, setClick] = useState(false);
+const [click2, setClick2] = useState(false);
+
+const closeWindow = (val)=>{
+
+  setClick(val)
+
+
+}
+
+const closeWindow2 = (val)=>{
+
+  setClick2(val)
+
+
+}
+
   return (
     <Container>
       <Categories>
@@ -242,10 +263,20 @@ function ManagePost() {
                 <Manages>
                 <TagButton>#태그 추가</TagButton>
                 <ManageButton>이동수단 추가</ManageButton>
-                <ManageButton>장소 추가</ManageButton>
+                <ManageButton onClick={()=>{
+                  setClick2(true)
+                  setClick(false)
+                  }}>장소 추가</ManageButton>
+                
                 </Manages>
                 </PostBox>
-                <AddButton>일정 추가하기</AddButton>
+                <AddButton onClick={()=>{
+                  setClick(true)
+                  setClick2(false)
+                
+                }}>일정 추가하기</AddButton>
+                {click&&<AddCity closeWindow={closeWindow}/>}
+                {click2&&<AddPlace closeWindow2={closeWindow2} />}
               </Posts>
     </Container>
   );

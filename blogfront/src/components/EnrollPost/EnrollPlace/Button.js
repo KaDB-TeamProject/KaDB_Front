@@ -5,7 +5,7 @@ let Btn = styled.button`
 
 padding: 10px;
 border-radius: 10px;
-background-color: ${(props) => props.color};
+background-color: #567ace;
 border: 0;
 flex-grow: 2;
 margin: 10px;
@@ -15,15 +15,11 @@ margin: 10px;
 
 function Button(props){
 
-    const [click, setClick] = useState(true);
+    const val = false;
 
-return <Btn color={props.color} onClick={()=>{
     
-    setClick(true)
-    props.onClickChange(click)
 
-
-}}>{props.text}</Btn>
+return <Btn onClick = {()=>{props.onClickChange = val}}>등록하기</Btn>
 
 
 }
