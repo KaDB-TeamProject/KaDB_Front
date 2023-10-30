@@ -206,7 +206,7 @@ const AddButton = styled.button`
   margin-bottom: 20px;
   font-family: KakaoBold;
   font-size: 10pt;
-`;
+`
 
 function ManagePost() {
 
@@ -230,7 +230,6 @@ function ManagePost() {
   const closeWindow3 = (val) => {
 
     setClick3(val)
-
   }
 
   return (
