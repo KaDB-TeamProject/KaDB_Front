@@ -26,14 +26,15 @@ const Logo = styled.img`
 `
 async function postsignup(id, password,email,phonenum,birthday){
     const postBirthday = new Date(birthday)
-    await axios.post(url+'user/signup',{
+    const postData = {
         id : id,
         password : password,
         email : email,
         phonenumber : phonenum,
         birthday : postBirthday
     }
-    )
+
+    await axios.post(url+'user/signup',postData,{headers:{'Content-Type':'application/json'}})
     .then((response)=>{
         console.log('signup axios post 응답 : ' + response)
     })
