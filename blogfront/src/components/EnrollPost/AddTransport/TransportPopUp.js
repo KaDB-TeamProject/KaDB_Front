@@ -74,11 +74,12 @@ function PlacePopUp(props) {
 
                 <InputContainer />
 
-                <Button onClick={() => { props.closeWindow(false) }}>제출하기</Button>
+                <Button onClick={() => 
+                    { props.closeWindow(false) }}>제출하기</Button>
             </CityBox>
 
         </Container>
-        
+
     );
 
 
