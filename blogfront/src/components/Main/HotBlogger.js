@@ -19,6 +19,8 @@ const BloggerName = styled.div`
     }
 `
 function HotBlogger(props) {
+
+    
     return (
         <>
             <h1>HOT Blogger</h1>
@@ -26,7 +28,7 @@ function HotBlogger(props) {
                 {
                     props.hotbloggers.map((blogger, id) => {
                         return (
-                            <HotBloggerDiv key={id}>
+                            <HotBloggerDiv key={id} onClick = {props.onClick}>
                                 <BloggerImg src={blogger.img} />
                                 <BloggerName>
                                     <h4>{blogger.name}</h4>

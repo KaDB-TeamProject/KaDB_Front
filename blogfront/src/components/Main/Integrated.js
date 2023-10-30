@@ -6,6 +6,7 @@ import HotBlogger from "./HotBlogger";
 import HotPost from "./HotPost";
 import Map from "./Map";
 import Head from "./Head";
+import { useNavigate } from "react-router-dom";
 
 const MainDiv = styled.div`
     width: 50rem;
@@ -16,6 +17,9 @@ const ContentsDiv = styled.div`
     padding: 1rem;
 `
 function Main() {
+
+    const navi = useNavigate();
+
     const hotbloggers = [
         {
             img : user,
@@ -41,7 +45,7 @@ function Main() {
         <MainDiv>
             <Head/>
             <ContentsDiv>
-                <HotBlogger hotbloggers={hotbloggers}/>
+                <HotBlogger hotbloggers={hotbloggers} onClick={()=>{navi('/bloghome')}}/>
                 <Map />
                 <HotPost />
             </ContentsDiv>
