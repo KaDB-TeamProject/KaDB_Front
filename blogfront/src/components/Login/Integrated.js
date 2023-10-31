@@ -34,7 +34,7 @@ async function postlogin(id, password){
         id : id,
         password : password
     }
-    await axios.post(url+'user/login',qs.stringify(data),
+    await axios.post(url+'login',qs.stringify(data),
     {headers:{
         'Content-Type' : 'application/x-www-form-urlencoded'
     }}
