@@ -6,6 +6,7 @@ const PostBox = styled.div`
   border-radius: 10px;
   position: relative;
   padding: 10px 20px;
+  width: 80%;
 `;
 const PostBoxTitle = styled.div`
   font-family: KakaoBold;
@@ -37,7 +38,7 @@ const PostItem = styled.div`
   font-family: KakaoRegular;
   font-size: 10pt;
   color: #000000;
-  margin-left: 20px;
+  width: 80%;
   margin: 20px 22px;
 `;
 
@@ -96,7 +97,6 @@ function AddSchedule(props) {
             <PostBoxTitle>{props.id+1}일차</PostBoxTitle>
             <DelButton onClick={()=>{props.delete(props.id)}}>&#10060;</DelButton>
             <PostItemBox>
-                
                 <PostItem>
                   <textarea></textarea>
                 </PostItem>
