@@ -51,12 +51,12 @@ function InputBox(props) {
             <InputBar>
                 <Img src={pwImg} />
                 <PutPW id={0} onPWChange={props.handleChange} />
-                <P1>{props.msg}</P1>
             </InputBar>
+            <P1>{props.msg}</P1>
         </PWBox>
 
     )
 
 }
 
-export default InputBox();
+export default InputBox;
