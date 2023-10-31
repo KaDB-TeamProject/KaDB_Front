@@ -71,7 +71,7 @@ function Introduce(props) {
             <NameDiv>
                 <BedgeImg src={bedgeIcon}/>
                 <h1>{props.name}</h1>
-                <EditIcon src={editIcon}/>
+                <EditIcon src={editIcon} onClick={()=>navigate('/EnrollPost')}/>
             </NameDiv>
             <FolDiv>
                 <FoTable>
@@ -95,7 +95,7 @@ function Introduce(props) {
                 {props.intro}
             </TextDiv>
             <ButtonDiv>
-                <ButtonImg src={calanderIcon} onClick={()=>navigate('/manageroute')}/>
+                <ButtonImg src={calanderIcon} onClick={()=>navigate('/routeview')}/>
                 <ButtonImg src={settingIcon} onClick={()=>navigate('/setting')}/>
             </ButtonDiv>
         </IntroduceDiv>
