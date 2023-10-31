@@ -27,7 +27,7 @@ const EditIcon = styled.img`
     border : 3px solid black;
     border-radius : 5px;
     padding : 0.2rem;
-    width : 5%;
+    width : 1rem;
     aspect-ratio: 1/1;
     margin-left : 0.6rem;
 `
@@ -39,9 +39,9 @@ const FolDiv = styled.div`
     justify-content: center;
     font-weight : bold;
     grid-column : 2/3;
-    grid-row : 1/3;
 `
 const FoTable = styled.table`
+    text-align: center;
 `
 const FoTableTbody = styled.tbody`
     display: inline-block;
@@ -49,6 +49,7 @@ const FoTableTbody = styled.tbody`
     border-radius: 5px;
     text-align: center;
     padding:4%;
+    width: 11rem;
 `
 const ButtonDiv = styled.div`
     display: flex;
@@ -78,14 +79,12 @@ function Introduce(props) {
                     <FoTableTbody>
                     <tr>
                         <td>게시물</td>
+                        <td onClick={()=>navigate('/follower')} style={{cursor:"pointer"}}>팔로워</td>
+                        <td onClick={()=>navigate('/following')} style={{cursor:"pointer"}}>팔로잉</td>
+                    </tr>
+                    <tr>
                         <td>{props.postcount.toLocaleString('ko-KR')}</td>
-                    </tr>
-                    <tr onClick={()=>navigate('/follower')} style={{cursor:"pointer"}}>
-                        <td>팔로워</td>
                         <td>{props.follower.toLocaleString('ko-KR')}</td>
-                    </tr>
-                    <tr onClick={()=>navigate('/following')} style={{cursor:"pointer"}}>
-                        <td>팔로잉</td>
                         <td>{props.following.toLocaleString('ko-KR')}</td>
                     </tr>
                     </FoTableTbody>
