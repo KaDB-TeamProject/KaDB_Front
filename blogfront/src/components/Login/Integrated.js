@@ -36,7 +36,7 @@ async function postlogin(id, password){
     }
     await axios.post(url+'login',qs.stringify(data),
     {headers:{
-        'Content-Type' : 'application/x-www-form-urlencoded'
+        'Content-Type' : 'application/json'
     }}
     )
     .then((response)=>{
@@ -44,7 +44,6 @@ async function postlogin(id, password){
     })
     .catch((error)=>{
         console.log('login axios post 에러 : ' + error)
-        console.log(qs.stringify(data))
     })
 }
 
