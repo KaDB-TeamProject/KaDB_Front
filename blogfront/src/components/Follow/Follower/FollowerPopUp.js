@@ -49,39 +49,74 @@ const HeaderContainer = styled.div`
 `;
 
 function FollowerPopUp() {
+    //follower user data
     const [userData, setUserData] = useState([...data]);
+    //state for storing search input from the user
     const [search, setSearch] = useState('');
 
+
+    //to store the searched data right away, use useEffect function
     useEffect(() => {
 
+        //select all data that includes the term "search" in the list. As it shell not
+        //affect the original data, make another data string
         const filteredData = data.filter(item => item.name.includes(search));
+        //set userData as the ones that contains the letter, filtered from the code above
         setUserData(filteredData);
-        
+
+        //on change of the data search
     }, [search]);
 
+    //handleSearch will be called when search data is changed from searchbar
     const handleSearchChange = (searchTerm) => {
+
+        //set search as data recieved from the search bar
+        //after this code, useEffect will be ran
         setSearch(searchTerm);
     };
 
+    //function for handling when user blocks anther user
     const handleBlockUser = (updatedData) => {
+
+        //set user data as users except for the one that the user pressed button
         setUserData(updatedData);
+        //update data without the user
         updateTempData(updatedData);
     };
 
+    //on clear search, search data will be called, and useEffect will be ran
     const handleClearSearch = () => {
         setSearch('');
     };
 
     return (
         <>
+            {/*the container will take the whole size of the browswer. 
+            But, for the width, it will take width except for the width that
+            navigation bar would take*/}
             <Container>
+                {/* FollowerBox is box that will show the contents of the page */}
                 <FollowerBox>
+                    {/* Quick menu that user can move from following to follower
+                    or follower to following */}
                     <MappingBox />
+                    {/* It will show the title of the component and contains search bar */}
                     <HeaderContainer>
+
                         <HeaderBox text="팔로워 사용자 리스트" />
+                        {/*Gets the container element implemented with the search function.
+                         At this time, the prop creates two props to get the value 
+                         from the corresponding component. 
+                         HandSearch receives the user's search, and onclear explodes 
+                         all the existing search contents when the user presses X 
+                         to erase the content */}
                         <SearchBox onChange={handleSearchChange} onClear={handleClearSearch} />
                     </HeaderContainer>
+                    {/* Will show the list of users that the user is following.*/}
                     <FollowerComponentContainer>
+                        {/* As it uses same components as follower component,
+                        props for following data, colour of the button, 
+                        function for handling block user, and text for the button*/}
                         <FollowComponent data={userData} colour="#EB0000" onButtonClick={handleBlockUser} text="차단하기" />
                     </FollowerComponentContainer>
                 </FollowerBox>

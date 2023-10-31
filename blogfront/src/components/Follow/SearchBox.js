@@ -29,16 +29,24 @@ const Img2 = styled.img`
 
 function SearchBox(props) {
 
+    // state to store searched data
     const [search, setSearch] = useState('');
 
+    // when clear button is pressed, input search data will be cleared
+    //it will be sent to component that called this componenet
     const handleClearSearch = () => {
+
+        //clear searched data
         setSearch("");
         props.onClear();
 
     };
 
+    //handle search change. Get input data that user input
+    //it will be sent to component that called this component
     const handleSearchChange = (val) => {
 
+        //set search value as data that user input
         setSearch(val)
         props.onChange(val)
         
@@ -47,10 +55,14 @@ function SearchBox(props) {
 
     return (
 
+        //search bar container
         <SearchContainer>
+            {/* image are icons that will be shown inside search bar */}
             <Img src={img1} />
+            {/* area that user will actually put data */}
             <SearchBar value={search} onChange={handleSearchChange} />
             <Img2 src={img2} onClick={handleClearSearch} />
+            
         </SearchContainer>
 
     )
