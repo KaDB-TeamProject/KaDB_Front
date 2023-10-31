@@ -29,7 +29,7 @@ width: 70%;
 
 let Image = styled.img`
 
-width: 40%;
+  width: 40%;
   height: auto;
   margin: 10px;
 
