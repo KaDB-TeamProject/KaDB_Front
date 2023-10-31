@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import axios from "axios"
 import { url } from "../../App"
+import qs from 'qs'
 
 import InputBox from "./InputBox";
 import Button from "./Button";
@@ -29,10 +30,14 @@ const LoginFP = styled.a`
     margin-bottom:1rem;
 `
 async function postlogin(id, password){
-    await axios.post(url+'user/login',{
+    const data = {
         id : id,
-        password : password,
+        password : password
     }
+    await axios.post(url+'user/login',qs.stringify(data),
+    {headers:{
+        'Content-Type' : 'application/x-www-form-urlencoded'
+    }}
     )
     .then((response)=>{
         console.log('login axios post 응답 : ' + response)
