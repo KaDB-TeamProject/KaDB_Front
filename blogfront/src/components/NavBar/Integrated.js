@@ -27,6 +27,7 @@ const BackDiv = styled.div`
     flex-direction : column;
     justify-content: space-between;
     align-items : center;
+    z-index: 1;
 `
 const SignDiv = styled.div`
     display : flex;
@@ -40,7 +41,6 @@ const MenuDiv = styled.div`
 `
 const SearchDiv = styled.div`
     position:relative;
-    z-index: 10;
 `
 
 function NavBar(props) {
