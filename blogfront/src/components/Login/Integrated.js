@@ -31,7 +31,7 @@ const LoginFP = styled.a`
 `
 async function postlogin(id, password){
     const data = {
-        id : id,
+        username : id,
         password : password
     }
     await axios.post(url+'login',qs.stringify(data),
@@ -44,6 +44,7 @@ async function postlogin(id, password){
     })
     .catch((error)=>{
         console.log('login axios post 에러 : ' + error)
+        console.log(qs.stringify(data))
     })
 }
 
