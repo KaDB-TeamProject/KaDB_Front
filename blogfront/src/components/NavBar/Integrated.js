@@ -57,7 +57,7 @@ function NavBar(props) {
                     <MenuButton text="SEARCH" src={searchIcon} onClick={(e) => { 
                             setToggleSearch(!toggleSearch) 
                         }}/>
-                    {toggleSearch&&<Input/>}
+                    {toggleSearch&&<Input onKeyDown={()=>{setToggleSearch(false)}}/>}
                 </SearchDiv>
             </MenuDiv>
             <SignDiv>
