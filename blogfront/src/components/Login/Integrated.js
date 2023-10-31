@@ -32,7 +32,7 @@ const LoginFP = styled.a`
 `
 
 function Login(){
-    const navigator = useNavigate
+    const navigator = useNavigate()
     const [id,setId] = useState('')
     const [password,setPassword] = useState('')
 
