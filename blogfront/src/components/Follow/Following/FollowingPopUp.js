@@ -1,14 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import SearchBar from './SearchBar';
 import FollowComponent from '../FollowComponent';
 import data from './TempData';
 import { updateTempData } from './TempData';
-import img1 from '../Source/search.png';
-import img2 from '../Source/close.png';
 import bg from '../Source/bgimg2.png'
 import HeaderBox from '../HeaderBox'
 import MappingBox from '../MappingContainer';
+import SearchBox from '../SearchBox';
 
 const Container = styled.div`
 
@@ -51,36 +49,19 @@ const HeaderContainer = styled.div`
     margin-bottom: 2vh;
 `;
 
-const SearchBox = styled.div`
-    height: 10vh;
-    width: 34vw;
-    border-radius: 10px;
-    align-items: center;
-    display: flex;
-    background-color: white;
-`;
-
-const Img = styled.img`
-    height: 2vh;
-    margin-left: 10px;
-    margin-right: 20px;
-`;
-
-const Img2 = styled.img`
-    height: 1.5vh;
-    margin-left: 10px;
-    margin-right: 20px;
-    cursor: pointer;
-`;
-
 function FollowingPopUp() {
     const [userData, setUserData] = useState([...data]);
     const [search, setSearch] = useState('');
 
+    useEffect(() => {
+
+        const filteredData = data.filter(item => item.name.includes(search));
+        setUserData(filteredData);
+        
+    }, [search]);
+
     const handleSearchChange = (searchTerm) => {
         setSearch(searchTerm);
-        const filteredData = data.filter(item => item.name.includes(searchTerm));
-        setUserData(filteredData);
     };
 
     const handleBlockUser = (updatedData) => {
@@ -90,7 +71,6 @@ function FollowingPopUp() {
 
     const handleClearSearch = () => {
         setSearch('');
-        setUserData([...data])
     };
 
     return (
@@ -100,11 +80,7 @@ function FollowingPopUp() {
                     <MappingBox />
                     <HeaderContainer>
                         <HeaderBox text="팔로잉중인 사용자 리스트"/>
-                        <SearchBox>
-                            <Img src={img1} />
-                            <SearchBar value={search} onChange={handleSearchChange} />
-                            <Img2 src={img2} onClick={handleClearSearch} />
-                        </SearchBox>
+                        <SearchBox onChange={handleSearchChange} onClear={handleClearSearch} />
                     </HeaderContainer>
                     <FollowerComponentContainer>
                         <FollowComponent data={userData} colour="#23C9BF"
