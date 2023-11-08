@@ -21,7 +21,6 @@ const CategoryTitle = styled.div`
   color: #FFFFFF;
   font-weight: bold;
   text-decoration: 2px yellow underline;
-  margin-left: 80px;
   margin-top: 40px;
 `;
 
