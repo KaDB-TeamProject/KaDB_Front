@@ -49,7 +49,7 @@ function IndividualBlogHome() {
 
       <CategoryBlog />
   
-      {/* <PopularBlog /> */}
+      <PopularBlog />
 
 
     </Container>
