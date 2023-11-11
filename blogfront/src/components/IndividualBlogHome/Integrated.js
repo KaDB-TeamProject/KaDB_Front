@@ -9,7 +9,7 @@ const Container = styled.div`
   background-color: #CF6E36;
 
   overflow-x: hidden;
-  width: calc(100vw - 7rem);
+  width: calc(100vw - 8.1rem);
 `;
 
 const SiteName = styled.h1`

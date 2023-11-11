@@ -1,15 +1,19 @@
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import img from "./Source/test.png";
+import data from './TempPopularPost'
 
 const PopularPost = styled.div`
   width: 15vw;
-  height: 20vw;
+  height: 20vh;
   background-color: #cbcbcb;
-  padding: 20px 20px;
+  padding: 10px;
   border-radius: 3px;
-  margin: 20px 50px;
-  margin-left: 40px;
+  margin: 2vw;
+  
+  align-items: center;
+  justify-content: center;
+  display:flex;
+  flex-direction: column;
 `;
 
 const PostImage = styled.img`
@@ -30,34 +34,32 @@ const PostTags = styled.div`
 
 function PopularBlogList() {
   const navi = useNavigate();
-
+  console.log(data)
   return (
-    <>
-      <PopularPost
-        onClick={() => {
-          navi("/blogpost");
-        }}
-      >
-        <PostImage src={img} alt="Europe" />
-        <PostTags>#England #FRANCE</PostTags>
-      </PopularPost>
-      <PopularPost
-        onClick={() => {
-          navi("/blogpost");
-        }}
-      >
-        <PostImage src={img} alt="New Zealand" />
-        <PostTags>#NEW ZEALAND</PostTags>
-      </PopularPost>
-      <PopularPost
-        onClick={() => {
-          navi("/blogpost");
-        }}
-      >
-        <PostImage src={img} alt="Singapore" />
-        <PostTags>#SINGAPORE</PostTags>
-      </PopularPost>
-    </>
+    
+
+      
+      data.map(function(a){
+
+        return(
+
+
+          <PopularPost
+          onClick={() => {
+            navi("/blogpost");}}>
+          <PostImage src={a.img} alt="Europe" />
+          <PostTags>{a.title}</PostTags>
+        </PopularPost>
+
+
+        )
+
+
+
+      })
+
+    
   );
+  
 }
 export default PopularBlogList;
