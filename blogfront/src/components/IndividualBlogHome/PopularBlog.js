@@ -29,6 +29,9 @@ const PopularPostsBox = styled.div`
   flex: 1;
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  
 `;
 
 const BlogListBox = styled.div`
