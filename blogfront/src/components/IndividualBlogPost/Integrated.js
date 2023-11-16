@@ -6,6 +6,7 @@ import TitleBoxContainer from "./TitleBoxContainer";
 import InfoContainer from "./InfoContainer";
 
 const Container = styled.div`
+width: calc(100vw - 8.1rem);
   display: flex;
   flex-direction: column;
   background-color: #cf6e36;
@@ -53,6 +54,7 @@ const Posts = styled.div`
 
 
 const CommentBox = styled.div`
+  width: 75vw;
   background-color: #fef0f9;
   border-radius: 10px;
   margin: 10px 20px;
@@ -61,7 +63,7 @@ const CommentBox = styled.div`
   padding: 8px 10px;
   display: flex;
   flex-direction: column;
-  visibility: ${(props)=> props.visibility};
+  visibility: ${(props) => props.visibility};
 `;
 
 const CommentContainer = styled.div`
@@ -76,7 +78,7 @@ const CommentContainer = styled.div`
 function IndividualBlogPost() {
 
   const [visbility, setVisibility] = useState("visible");
- 
+
 
   const changeVisbility = (value) => {
 
@@ -99,9 +101,9 @@ function IndividualBlogPost() {
         <PostBoxContainer />
       </Posts>
 
-      <InfoContainer changeVisbility = {changeVisbility}/>
+      <InfoContainer changeVisbility={changeVisbility} />
 
-      <CommentBox visibility = {visbility}>
+      <CommentBox visibility={visbility}>
         <CommentContainer>
           <CommentBoxContainer />
         </CommentContainer>

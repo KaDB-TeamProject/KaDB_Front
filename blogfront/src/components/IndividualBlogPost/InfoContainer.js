@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import { useState } from "react";
 
-const HeartButton = styled.button`
+const HeartButton = styled.button`  
+
   background-color: #ffd9fa;
   font-family: KakaoRegular;
   font-size: 10pt;
@@ -10,6 +11,7 @@ const HeartButton = styled.button`
   margin-left: 100px;
   color: #000000;
   border: none;
+  width: 10vw
 `;
 
 const HideButton = styled.button`
@@ -19,17 +21,46 @@ const HideButton = styled.button`
   padding: 10px 20px;
   border-radius: 50px;
   position: absolute;
-  right: 100px;
   border: none;
+  width: 10vw
 `;
 
-const Container = styled.div``;
+const Container = styled.div`
+
+width: calc(100vw - 8.1rem);
+display: flex;
+flex-direction: row;
+
+
+`;
+
+const EmptyBox = styled.div`
+
+width: 65vw;
+
+`
+const HeartContainer = styled.div`
+
+width: 8vw
+
+`
+
+const HideContainer = styled.div`
+
+width: 8vw
+
+`
 
 function InfoContainer(props) {
+
+  let [like, setLike] = useState(10)
   const [cnt, setCnt] = useState(0);
   const [text, setText] = useState("댓글 숨기기");
+  const [clickState, setClickState] = useState(false)
 
   const handleClick = () => {
+
+    console.log("ededed")
 
     setCnt(cnt + 1);
 
@@ -37,19 +68,51 @@ function InfoContainer(props) {
       setText("댓글 표시");
       const state = "hidden"
       props.changeVisbility(state)
-    } else {
+    }
+    else {
       setText("댓글 숨기기");
       const state = "visibile"
       props.changeVisbility(state)
     }
 
-   
+
   };
+
+  const updateLike = () => {
+
+    console.log("ededed")
+
+    if (clickState) {
+
+      const i = like + 1;
+
+      setLike(i)
+      setClickState(false)
+
+    }
+    else {
+
+      const i = like - 1;
+
+      setLike(i)
+      setClickState(true)
+
+
+    }
+
+
+  }
+  
 
   return (
     <Container>
-      <HeartButton>❤️ 102 </HeartButton>
-      <HideButton onClick={handleClick}>{text}</HideButton>
+      <HeartContainer>
+        <HeartButton onClick={updateLike}>❤️ {like} </HeartButton>
+      </HeartContainer>
+      <EmptyBox />
+      <HideContainer>
+        <HideButton onClick={handleClick}>{text}</HideButton>
+      </HideContainer>
     </Container>
   );
 }
