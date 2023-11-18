@@ -17,8 +17,8 @@ const PopularPost = styled.div`
 `;
 
 const PostImage = styled.img`
-  width: 10vw;
-  height: 10vw;
+  width: 8vw;
+  height: 8vw;
   margin: 20px 20px;
   padding: 10px 20px;
   margin-top: 10px;
@@ -29,7 +29,9 @@ const PostTags = styled.div`
   font-size: 9pt;
   font-family: KakaoRegular;
   color: #000000;
-  margin-left: 10px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
 `;
 
 function PopularBlogList() {

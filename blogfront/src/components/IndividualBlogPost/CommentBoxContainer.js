@@ -1,16 +1,16 @@
 import styled from "styled-components";
-import comments from './TempComment'
+import comments from "./TempComment";
 
 const Comments = styled.div`
-
-  height: 18vh;
+  height: 10vh;
   background-color: #ffffff;
   border-radius: 20px;
-  padding: 10px 10px;
   margin-bottom: 2rem;
   display: flex;
   flex-direction: row;
   border: 2px solid black;
+  align-items: center;
+  justify-content: center;
 `;
 
 const Profiles = styled.div`
@@ -19,41 +19,45 @@ const Profiles = styled.div`
   justify-content: center;
   align-items: center;
   width: 10vw;
-
 `;
 
 const Profile = styled.img`
-  weight: 70px;
-  height: 70px;
+  weight: 5vh;
+  height: 5vh;
   border-radius: 50%;
   justify-content: center;
   align-items: center;
   border: 2px solid black;
-  
 `;
 
 const Nickname = styled.div`
-  margin: 5px 15px;
+  margin-top: 1vh;
   font-family: KakaoRegular;
   font-size: 8pt;
   margin-bottom: 10px;
 `;
 
-const CommentItem = styled.div`
+const CommentBox = styled.div`
+  display: flex;
+  align-itmes: center;
+  justify-content: center;
+  height: 10vh;
+  width: 55vw;
+`;
+
+const CommentItem = styled.span`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: #000000;
   font-family: KakaoRegular;
   font-size: 10pt;
-  margin: 50px 20px;
+  height: 10vh;
   width: 55vw;
 `;
 
 const HeartItem = styled.div`
-
-  height: 18vh;
-  position: absolute;
-  right: 100px;
-  margin-right: 40px;
-  margin-top: 0px;
+  height: 10vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -62,13 +66,11 @@ const HeartItem = styled.div`
 `;
 
 const HeartIcon = styled.div`
-  margin-top: 8px;
-  margin-right: 10px;
+
 `;
 
 const HeartCount = styled.div`
-  margin-top: 5px;
-  margin-right: 10px;
+
   font-family: KakaoRegular;
   font-size: 9pt;
 `;
@@ -76,35 +78,23 @@ const HeartCount = styled.div`
 function CommentBoxContainer() {
   return (
     <>
-
       {comments.map(function (a) {
-
         return (
-
           <Comments>
             <Profiles>
               <Profile src={a.profile} />
               <Nickname>{a.nickname}</Nickname>
             </Profiles>
-            <CommentItem>
-              {a.text}
-            </CommentItem>
+            <CommentBox>
+              <CommentItem>{a.text}</CommentItem>
+            </CommentBox>
             <HeartItem>
               <HeartIcon>❤️</HeartIcon>
               <HeartCount>{a.like}</HeartCount>
             </HeartItem>
           </Comments>
-
-
-
-        )
-
-
-
-
+        );
       })}
-
-
     </>
   );
 }

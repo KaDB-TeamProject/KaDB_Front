@@ -22,6 +22,7 @@ const CategoryTitle = styled.div`
   font-weight: bold;
   text-decoration: 2px yellow underline;
   margin-top: 40px;
+  margin-bottom: 1rem;
 `;
 
 
@@ -30,10 +31,8 @@ const CategoryBox = styled.div`
     width: 70vw;
   background-color: #FFFFFF;
   border-radius: 5px;
-  margin: 20px 80px;
   display: flex;
   flex-direction: row;
-  margin-left: 80px;
   overflow-y: scroll
 `;
 

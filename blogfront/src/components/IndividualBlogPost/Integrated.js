@@ -6,7 +6,7 @@ import TitleBoxContainer from "./TitleBoxContainer";
 import InfoContainer from "./InfoContainer";
 
 const Container = styled.div`
-width: calc(100vw - 8.1rem);
+  width: calc(100vw - 8.1rem);
   display: flex;
   flex-direction: column;
   background-color: #cf6e36;
@@ -29,17 +29,8 @@ const BlogDescription = styled.div`
   margin-top: 5px;
 `;
 
-const PostTitle = styled.div`
-  font-size: 12pt;
-  font-family: KakaoBold;
-  color: #ffffff;
-  font-weight: bold;
-  text-decoration: 2px yellow underline;
-  margin-left: 120px;
-  margin-top: 20px;
-`;
-
 const Posts = styled.div`
+width: 75vw;
   display: flex;
   margin-top: 10px;
   flex-direction: column;
@@ -50,8 +41,6 @@ const Posts = styled.div`
   border-radius: 10px;
   padding: 10px 10px;
 `;
-
-
 
 const CommentBox = styled.div`
   width: 75vw;
@@ -67,47 +56,52 @@ const CommentBox = styled.div`
 `;
 
 const CommentContainer = styled.div`
+  padding-top: 20px;
   display: flex;
   flex-direction: column;
-  margin-top: 20px;
-  margin: 8px 10px;
 `;
+
+const ContentContainer = styled.div`
+
+display: flex;
+flex-direction: column;
+align-items: center;
+
+
+
+`
 
 
 
 function IndividualBlogPost() {
-
   const [visbility, setVisibility] = useState("visible");
 
-
   const changeVisbility = (value) => {
-
-    setVisibility(value)
-
-  }
-
-
-
+    setVisibility(value);
+  };
 
   return (
     <Container>
       <SiteName>Trip Again</SiteName>
       <BlogDescription>좌충우돌 세계일주 여행기</BlogDescription>
 
-      <TitleBoxContainer />
 
-      <PostTitle>POST</PostTitle>
-      <Posts>
-        <PostBoxContainer />
-      </Posts>
+        <TitleBoxContainer />
 
-      <InfoContainer changeVisbility={changeVisbility} />
+        <ContentContainer>
+        
+        <Posts>
+          <PostBoxContainer />
+        </Posts>
 
-      <CommentBox visibility={visbility}>
-        <CommentContainer>
-          <CommentBoxContainer />
-        </CommentContainer>
-      </CommentBox>
+        <InfoContainer changeVisbility={changeVisbility} />
+
+        <CommentBox visibility={visbility}>
+          <CommentContainer>
+            <CommentBoxContainer />
+          </CommentContainer>
+        </CommentBox>
+      </ContentContainer>
     </Container>
   );
 }

@@ -80,12 +80,6 @@ const TagBox = styled.div`
   margin-left: 10px;
 `;
 
-const subs = styled.div`
-  margin-top: 50px;
-  display: flex;
-  flex-direction: row;
-  position: absolute;
-`;
 
 
 function PostBoxContainer(){
