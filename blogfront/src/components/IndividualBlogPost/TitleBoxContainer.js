@@ -1,5 +1,14 @@
 import styled from "styled-components";
 
+const Container = styled.div`
+
+
+
+
+`
+
+
+
 const Schedule = styled.div`
   display: flex;
   flex-direction: row;
@@ -7,12 +16,13 @@ const Schedule = styled.div`
 `;
 
 const ScheduleTitle = styled.div`
+text-align: start;
   font-size: 12pt;
   font-family: KakaoBold;
   color: #FFFFFF;
   font-weight: bold;
   text-decoration: 2px yellow underline;
-  margin-left: 120px;
+  margin-left: 5vw;
   margin-top: 30px;
 `;
 
@@ -45,16 +55,15 @@ const Copybutton = styled.button`
 
 function TitleBoxContainer() {
   return (
-    <>
+    <Container>
       <ScheduleTitle>SCHEDULE</ScheduleTitle>
       <Schedule>
         <ScheduleBox>
-          Europe 2019.07.07 ~ 2019.08.13 영국 아일랜드 프랑스 스위스 오스트리아
-          체코
+          Europe 2019.07.07 ~ 2019.08.13 영국 아일랜드 프랑스 스위스 오스트리아 체코
         </ScheduleBox>
         <Copybutton>일정 복사하기</Copybutton>
       </Schedule>
-    </>
+    </Container>
   );
 }
 

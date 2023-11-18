@@ -36,6 +36,7 @@ const PopularPostsBox = styled.div`
 
 const BlogListBox = styled.div`
   height: 30vh;
+  width: 70vw;
 `;
 
 function PopularBlog() {
