@@ -10,6 +10,7 @@ width: calc(100vw - 7rem);
 display: flex;
 flex-direction: column;
 align-items: center;
+justify-content: center;
 
 `
 
@@ -38,9 +39,9 @@ const CategoryBox = styled.div`
 
 const Categories = styled.div`
   display: flex;
+  align-items: center;
   flex-direction: column;
   flex: 1;
-  margin-left: 10px;
   margin-top: 20px;
   width: 25%;
 `;
