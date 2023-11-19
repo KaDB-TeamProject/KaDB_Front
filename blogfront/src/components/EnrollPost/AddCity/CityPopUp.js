@@ -110,7 +110,7 @@ function CityPopUp(props) {
                     <CityInfo info={info} nation={nation} />
                 </CityContainer>
                 <HR />
-                <Button colour="#ffa0af" text="제출하기" closeWindow={props.closeWindow}/>
+                <Button colour="#ffa0af" text="제출하기" closeWindow={props.closeWindow} addContainer={props.addContainer}/>
             </CityBox>
         </Container>
     );

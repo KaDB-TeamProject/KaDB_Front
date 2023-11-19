@@ -177,7 +177,7 @@ function PlacePopUp(props) {
                     
                     />
                     <EmptyBox />
-                    <Btn onClick={()=>{props.closeWindow(false)}}>제출하기</Btn>
+                    <Btn onClick={()=>{ props.addBox(); props.closeWindow(false)}}>제출하기</Btn>
 
                 
                 </BtnContainer>
