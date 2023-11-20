@@ -16,13 +16,15 @@ const PopularPost = styled.div`
 
 const PostImage = styled.img`
 margin-top: 10%;
-  width: 8vw;
-  height: 8vw;
+  width: auto;
+  height: 10vh;
   margin-bottom: 14px;
   margin-left: 10px;
 `;
 
 const PostTags = styled.div`
+height: 8vh;
+width: 15vw;
 padding-top: 6%;
   font-size: 9pt;
   font-family: KakaoRegular;
@@ -32,34 +34,49 @@ padding-top: 6%;
   display: flex;
 `;
 
+const ImageBox = styled.div`
+
+height: 10vh;
+width: 15vw;
+display: flex;
+align-items: center;
+justify-content: center;
+
+
+
+`
+
 function PopularBlogList() {
   const navi = useNavigate();
   console.log(data)
   return (
-    
-
-      
-      data.map(function(a){
-
-        return(
 
 
-          <PopularPost
+
+    data.map(function (a) {
+
+      return (
+
+
+        <PopularPost
           onClick={() => {
-            navi("/blogpost");}}>
+            navi("/blogpost");
+          }}>
+            <ImageBox>
           <PostImage src={a.img} alt="Europe" />
+          </ImageBox>
           <PostTags>{a.title}</PostTags>
         </PopularPost>
 
 
-        )
+      )
 
 
 
-      })
+    })
 
-    
+
   );
-  
+
 }
 export default PopularBlogList;

@@ -27,6 +27,7 @@ let ImageContainer = styled.div`
 margin-left: 20px;
 
 `
+
 let TextContainer = styled.div`
 
 margin-left: 20px;
