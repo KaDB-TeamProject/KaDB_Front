@@ -33,12 +33,12 @@ const Postcontainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column; 
 `;
 
 const Posts = styled.div`
   width: 75vw;
   display: flex;
-  margin-top: 10px;
   flex-direction: column;
   background-color: #ffffff;
   border-radius: 10px;
@@ -117,7 +117,8 @@ const ManageButton = styled.button`
   font-family: KakaoBold;
   font-weight: bold;
   font-size: 10pt;
-  padding: 10px 20px;
+  width: 8rem;
+  padding: 14px;
   border: none;
   border-radius: 50px;
   margin-left: 10px;
@@ -131,7 +132,6 @@ const AddButton = styled.button`
   border-radius: 50px;
   border: none;
   align-items: center;
-  margin-bottom: 20px;
   font-family: KakaoBold;
   font-size: 10pt;
   margin-top: 10px;
@@ -149,12 +149,31 @@ const HeaderBox = styled.div`
   width: 60vw;
 `;
 
+const PostButton = styled.div`
+
+display: flex;
+flex-direction: row;
+width: 75vw;
+align-items: center;
+justify-content: center;
+
+
+`
+const EmptyBox = styled.div`
+
+width: 20vw;
+
+
+`
+
 function ManagePost() {
   const [click, setClick] = useState(false);
   const [click2, setClick2] = useState(false);
   const [click3, setClick3] = useState(false);
   const [container, SetContainer] = useState([{}]);
   const [boxes, setBoxes] = useState([]);
+  const [city, setCty] = useState("")
+  const [place, setPl] = useState("")
 
   const closeWindow = (val) => {
     setClick(val);
@@ -175,6 +194,35 @@ function ManagePost() {
     SetContainer([...container, {}]);
   };
 
+  const removeBox = (index) => {
+    const newBoxes = [...boxes];
+    newBoxes.splice(index, 1);
+    setBoxes(newBoxes);
+  };
+
+  const removeContainer = (index) => {
+
+    const newContainer = [...container]
+    newContainer.splice(index, 1)
+    SetContainer(newContainer)
+
+
+  }
+
+  const setCity = (val) => {
+
+    const c = val;
+    setCty(c);
+
+  }
+
+  const setPlace = (val)=> {
+
+    const p = val;
+    setPl(p)
+
+  }
+
   return (
     <Container>
       <CategorySelector />
@@ -182,22 +230,24 @@ function ManagePost() {
 
       <PostTitle>POST</PostTitle>
 
-      {container.map(function () {
+      {container.map(function (c, i) {
         return (
           <Postcontainer>
             <Posts>
               <PostBox>
                 <HeaderBox>
-                  <PostBoxTitle>1일차 인천 - 런던</PostBoxTitle>
+                  <PostBoxTitle>{i+1}일차 {city}</PostBoxTitle>
                   <SaveButton>저장</SaveButton>
                 </HeaderBox>
 
-                {boxes.map(function () {
+                {boxes.map(function (b, i) {
                   return (
-                    <PostItemBox>
-                      <PlaceTitle>장소</PlaceTitle>
-                      <PostInput />
-                    </PostItemBox>
+                    <div key={i}>
+                      <PostItemBox>
+                        <PlaceTitle>{place}</PlaceTitle>
+                        <PostInput />
+                      </PostItemBox>
+                    </div>
                   );
                 })}
 
@@ -221,29 +271,52 @@ function ManagePost() {
                   >
                     장소 추가
                   </ManageButton>
+                  <ManageButton
+                    onClick={removeBox}
+                  >
+                    장소 삭제
+                  </ManageButton>
                 </Manages>
               </PostBox>
+
+              {click && (
+                <AddCity
+                  closeWindow={closeWindow}
+                  addContainer={addContainer}
+                  setCity={setCity}
+                />
+              )}
+              {click2 && (
+                <AddPlace closeWindow2={closeWindow2} addBox={addBox} setPlace={setPlace}/>
+              )}
+              {click3 && <AddTransport closeWindow3={closeWindow3} />}
+            </Posts>
+            <PostButton>
+
               <AddButton
                 onClick={() => {
                   setClick(true);
                   setClick2(false);
                   setClick3(false);
                 }}
+
+                
               >
                 일정 추가하기
               </AddButton>
-              {click && (
-                <AddCity
-                  closeWindow={closeWindow}
-                  addContainer={addContainer}
-                />
-              )}
-              {click2 && (
-                <AddPlace closeWindow2={closeWindow2} addBox={addBox} />
-              )}
-              {click3 && <AddTransport closeWindow3={closeWindow3} />}
-            </Posts>
+
+                <EmptyBox />
+
+              <AddButton
+                onClick={removeContainer}>
+                일정 제거하기
+              </AddButton>
+            </PostButton>
+
           </Postcontainer>
+
+
+
         );
       })}
     </Container>

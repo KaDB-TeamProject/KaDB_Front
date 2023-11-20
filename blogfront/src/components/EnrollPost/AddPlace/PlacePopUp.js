@@ -162,7 +162,7 @@ function PlacePopUp(props) {
                     </SearchBarContainer>
                 </SearchBox>
                 <HR />
-                <PlaceContainer city={ct} place={plc} />
+                <PlaceContainer city={ct} place={plc} setPlace={props.setPlace}/>
                 <BtnContainer>
                     <Button color="#ffd700" text="신규 등록"
                     onClickChange={onClickChange}

@@ -1,11 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
   background-color: #CF6E36;
   height: 100vh
+  overflow-y: scroll;
 `;
 
 const SiteName = styled.h1`
@@ -151,6 +153,9 @@ const SummaryItem = styled.div`
   `;
 
   function RouteView() {
+
+    let navi = useNavigate()
+
     return (
     <Container>
         <div>
@@ -162,7 +167,7 @@ const SummaryItem = styled.div`
           <ScheduleTitle>SCHEDULE</ScheduleTitle>
           <Schedule>
             <ScheduleBox>Europe 2019.07.07 ~ 2019.08.13 영국 아일랜드 프랑스 스위스 오스트리아 체코</ScheduleBox>
-            <Copybutton>일정 복사하기</Copybutton>
+            <Copybutton onClick={()=>{navi(`/routeedit`)}}>일정 수정</Copybutton>
           </Schedule>
           </div>
 

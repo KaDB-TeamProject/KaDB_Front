@@ -30,9 +30,6 @@ let Detail = styled.div`
 border-top: 1px solid black;
 text-align: left;
 
-
-
-
 `
 
 function CityInfo(props) {
@@ -46,6 +43,9 @@ function CityInfo(props) {
         } else {
             setSelectedIdx(idx); 
         }
+
+        
+
     };
 
     return (
@@ -54,7 +54,7 @@ function CityInfo(props) {
                 if (props.nation === a.nat) {
                     return (
                         <CityIfBox isSelected={idx === selectedIdx}
-                        onClick={() => handleBoxClick(idx)}
+                        onClick={() => {handleBoxClick(idx); props.setCity(a.city)}}
                         key={idx}>
                             <h3>{a.city}</h3>
                             <Detail>
