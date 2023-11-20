@@ -15,7 +15,7 @@ function PlaceContainer(props){
     return(
 
         <Container>
-            <PlaceBox city={props.city} place={props.place}/>
+            <PlaceBox city={props.city} place={props.place} setPlace={props.setPlace}/>
 
 
         </Container>
