@@ -12,7 +12,7 @@ let Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 90vh;
+    height: 100vh;
     position: absolute;
     top: 0;
     left: 20;
@@ -21,19 +21,18 @@ let Container = styled.div`
 let CityBox = styled.div`
     justify-content: center;
     align-items: center;
-    width: 45rem;
-    height: 60vh;
+    width: 50vw;
+    height: 70vh;
     text-align: center;
     background-color: lavenderblush;
     border: 0;
     border-radius: 20px;
-    
     box-shadow: 5px 5px 5px 5px grey;
 `;
 
 let CityContainer = styled.div`
 
-height: 40vh;
+height: 45vh;
 overflow-y: auto;
 background-color: 	#F9FFFF;
 `
@@ -44,15 +43,6 @@ border-bottom: 1px solid black;
 
 `
 
-let HeaderBox = styled.div`
-    display: flex;
-    height: 2.5rem;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    font-size: 20px;
-
-`
 let SelectionContainer = styled.div`
 
 padding-left: 15px;
