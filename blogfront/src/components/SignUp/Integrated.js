@@ -13,11 +13,10 @@ import emailIcon from "./emailIcon.png"
 import { useNavigate } from "react-router-dom";
 
 const PWResetLDiv = styled.div`
+    padding : 5rem 0;
     display : flex;
     flex-direction : column;
     align-items : center;
-    width : 100%;
-    height: 100vh;
     background-color : #09006B;
 `
 const Logo = styled.img`
