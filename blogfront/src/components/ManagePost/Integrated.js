@@ -167,13 +167,16 @@ width: 20vw;
 `
 
 function ManagePost() {
+
   const [click, setClick] = useState(false);
   const [click2, setClick2] = useState(false);
   const [click3, setClick3] = useState(false);
-  const [container, SetContainer] = useState([{}]);
+  const [container, SetContainer] = useState([{ city: "", }]);
   const [boxes, setBoxes] = useState([]);
-  const [city, setCty] = useState("")
   const [place, setPl] = useState("")
+  const [cty, setCty] = useState("")
+  const [index1, setIndex1] = useState();
+  const [index2, setIndex2] = useState();
 
   const closeWindow = (val) => {
     setClick(val);
@@ -186,44 +189,9 @@ function ManagePost() {
     setClick3(val);
   };
 
-  const addBox = () => {
-    setBoxes([...boxes, {}]);
-  };
-
-  const addContainer = () => {
-    SetContainer([...container, {}]);
-  };
-
-  const removeBox = (index) => {
-    const newBoxes = [...boxes];
-    newBoxes.splice(index, 1);
-    setBoxes(newBoxes);
-  };
-
-  const removeContainer = (index) => {
-
-    const newContainer = [...container]
-    newContainer.splice(index, 1)
-    SetContainer(newContainer)
-
-
-  }
-
-  const setCity = (val) => {
-
-    const c = val;
-    setCty(c);
-
-  }
-
-  const setPlace = (val)=> {
-
-    const p = val;
-    setPl(p)
-
-  }
 
   return (
+
     <Container>
       <CategorySelector />
       <TitleBox />
@@ -236,15 +204,15 @@ function ManagePost() {
             <Posts>
               <PostBox>
                 <HeaderBox>
-                  <PostBoxTitle>{i+1}일차 {city}</PostBoxTitle>
+                  <PostBoxTitle>{i + 1}일차 {c.city}</PostBoxTitle>
                   <SaveButton>저장</SaveButton>
                 </HeaderBox>
 
-                {boxes.map(function (b, i) {
+                {Array.isArray(c.place) && c.place.map((p, k) => {
                   return (
-                    <div key={i}>
+                    <div key={k}>
                       <PostItemBox>
-                        <PlaceTitle>{place}</PlaceTitle>
+                        <PlaceTitle>{p.p}</PlaceTitle>
                         <PostInput />
                       </PostItemBox>
                     </div>
@@ -259,20 +227,27 @@ function ManagePost() {
                       setClick(false);
                       setClick2(false);
                     }}
-                  >
-                    이동수단 추가
-                  </ManageButton>
+                  >이동수단 추가</ManageButton>
                   <ManageButton
                     onClick={() => {
                       setClick2(true);
                       setClick(false);
                       setClick3(false);
+                      setIndex2(i)
                     }}
-                  >
-                    장소 추가
-                  </ManageButton>
+                  >장소 추가</ManageButton>
+
                   <ManageButton
-                    onClick={removeBox}
+                    onClick={()=>{
+
+                      const newContainer = [...container]
+
+                      newContainer[i].place.splice(newContainer[i].place.length -1, 1)
+
+                      SetContainer(newContainer)
+
+
+                    }}
                   >
                     장소 삭제
                   </ManageButton>
@@ -282,12 +257,57 @@ function ManagePost() {
               {click && (
                 <AddCity
                   closeWindow={closeWindow}
-                  addContainer={addContainer}
-                  setCity={setCity}
+
+                  setCity={(val) => {
+
+                    const cit = val;
+                    setCty(cit)
+
+
+                  }}
+
+                  addContainer={() => {
+                    const newItem = { city: "" }
+                    newItem.city = cty;
+
+                    SetContainer((prev) => {
+                      const updatedContainer = [
+                        ...prev.slice(0, index1 + 1),
+                        newItem,
+                        ...prev.slice(index1 + 1),
+                      ];
+                      return updatedContainer;
+                    });
+
+                  }}
+
                 />
               )}
               {click2 && (
-                <AddPlace closeWindow2={closeWindow2} addBox={addBox} setPlace={setPlace}/>
+                <AddPlace closeWindow2={closeWindow2} addBox={() => {
+
+                  const newPlace = { p: place }
+
+                  const newContainer = [...container]
+
+                  if (newContainer[index2]?.place) {
+                    newContainer[index2].place.push(newPlace);
+                  } else {
+
+                    newContainer[index2].place = [newPlace];
+                  }
+
+
+                  SetContainer(newContainer)
+
+                }
+
+                } setPlace={(val) => {
+
+                  const p = val;
+                  setPl(p)
+
+                }} />
               )}
               {click3 && <AddTransport closeWindow3={closeWindow3} />}
             </Posts>
@@ -298,24 +318,23 @@ function ManagePost() {
                   setClick(true);
                   setClick2(false);
                   setClick3(false);
-                }}
+                  setIndex1(i)
+                }}>
+                일정 추가하기</AddButton>
 
-                
-              >
-                일정 추가하기
-              </AddButton>
+              <EmptyBox />
 
-                <EmptyBox />
+              <AddButton onClick={() => {
 
-              <AddButton
-                onClick={removeContainer}>
-                일정 제거하기
-              </AddButton>
+                const newContainer = [...container]
+                newContainer.splice(i, 1)
+                SetContainer(newContainer)
+
+              }}>일정 제거하기</AddButton>
+
             </PostButton>
 
           </Postcontainer>
-
-
 
         );
       })}
