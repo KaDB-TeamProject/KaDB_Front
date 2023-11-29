@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -174,6 +175,8 @@ const AddButton = styled.button`
 `;
 
   function RouteEdit() {
+
+    const navi = useNavigate()
     return (
     <Container>
         <div>
@@ -185,7 +188,7 @@ const AddButton = styled.button`
           <ScheduleTitle>SCHEDULE</ScheduleTitle>
           <Schedule>
             <ScheduleBox>Europe 2019.07.07 ~ 2019.08.13 영국 아일랜드 프랑스 스위스 오스트리아 체코</ScheduleBox>
-            <Enrollbutton>일정 등록</Enrollbutton>
+            <Enrollbutton onClick={()=>navi("/routeview")}>수정 완료</Enrollbutton>
           </Schedule>
           </div>
 
@@ -220,7 +223,7 @@ const AddButton = styled.button`
                     </PostItems>
                 </PostItemBox>
                 <PostBoxTitle>2일차 런던</PostBoxTitle>
-                <AddButton>일정 추가하기</AddButton>
+                <AddButton>수정 완료</AddButton>
             </PostBox>
           </Posts>
         </div>
