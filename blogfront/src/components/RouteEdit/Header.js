@@ -113,10 +113,7 @@ function Header() {
                     <ScheduleBox>{title}</ScheduleBox>
                     <EmptyBox></EmptyBox>
                     <BtnBox>
-                    <Copybutton onClick={() => { navi(`/manageroute`) }}>목록으로</Copybutton>
-                    </BtnBox>
-                    <BtnBox>
-                    <Copybutton onClick={() => { navi(`/routeedit`) }}>일정 수정</Copybutton>
+                    <Copybutton onClick={() => { navi(`/manageroute`) }}>수정 완료</Copybutton>
                     </BtnBox>
                 </Schedule>
             </div>
