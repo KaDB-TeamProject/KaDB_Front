@@ -1,84 +1,25 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
+import Header from './Header';
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
+  width: calc(100vw - 8.1rem);
   background-color: #CF6E36;
-  height: 100vh
-  overflow-y: scroll;
-`;
-
-const SiteName = styled.h1`
- font-family: KakaoBold;
- font-size: 50pt;
- color: #FAF4C0;
- margin-top: 10px;
- margin-left: 20px;
- font-weight: bold;
-`;
-
-const BlogDescription = styled.div`
-  font-size: 12pt;
-  font-family: KakaoRegular;
-  color: #FFFFFF;
-  margin-left: 20px;
-  margin-top: 5px;
+  align-items: center;
+  min-height: 100vh; 
 `;
 
 
-const Schedule = styled.div`
-  display: flex;
-  flex-direction: row;
-  margin-left: 20px;
-`;
-
-const ScheduleTitle = styled.div`
-  font-size: 12pt;
-  font-family: KakaoBold;
-  color: #FFFFFF;
-  font-weight: bold;
-  text-decoration: 2px yellow underline;
-  margin-left: 120px;
-  margin-top: 30px;
-`;
-
-
-const ScheduleBox = styled.div`
-  background-color: #FFFFFF;
-  color: #000000;
-  padding: 20px 100px;
-  border-radius: 50px;
-  margin: 20px 10px;
-  font-family: KakaoBold;
-  font-size: 10pt;
-  font-weight: bold;
-  margin-left: 80px;
-`;
-
-const Copybutton = styled.button`
-  background-color: #FFFFFF;
-  color: #000000;
-  font-family: KakaoBold;
-  font-size: 10pt;
-  border-radius: 50px;
-  padding: 20px 40px;
-  margin: 20px 10px;
-  font-weight: bold;
-  text-shadow: 2px 2px 2px gray;
-  position: absolute;
-  right: 100px;
-`;
 
 const Posts = styled.div`
+width: 70vw;
   display: flex;
   margin-top: 10px;
   flex-direction: column;
   background-color: #FFFFFF;
-  margin-left: 100px;
-  margin-right: 100px;
-  margin: 20px 100px;
   border-radius: 10px;
 `;
 
@@ -159,17 +100,7 @@ const SummaryItem = styled.div`
     return (
     <Container>
         <div>
-          <div>
-            <SiteName>Trip Again</SiteName>
-            <BlogDescription>좌충우돌 세계일주 여행기</BlogDescription>
-          </div>
-          <div>
-          <ScheduleTitle>SCHEDULE</ScheduleTitle>
-          <Schedule>
-            <ScheduleBox>Europe 2019.07.07 ~ 2019.08.13 영국 아일랜드 프랑스 스위스 오스트리아 체코</ScheduleBox>
-            <Copybutton onClick={()=>{navi(`/routeedit`)}}>일정 수정</Copybutton>
-          </Schedule>
-          </div>
+        <Header />
 
           <Posts>
             <PostBox>
