@@ -16,9 +16,12 @@ align-items: center;
 justify-content: center;
 background-color: snow;
 width: 70vw;
+border-radius: 10px;
 
 
 `
+
+
 
 
 function InfoContainer(){

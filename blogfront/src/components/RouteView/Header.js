@@ -4,31 +4,45 @@ import styled from 'styled-components'
 
 const Container = styled.div`
 
+display: flex;
+flex-direction: column;
 height: 40vh;
-width: 70vw;
+width: 90%;
+align-items: center;
+box-sizing: border-box;
 
 `
 
 const SiteName = styled.div`
-height: 15vh;
- font-family: KakaoBold;
- font-size: 10vh;
- color: #FAF4C0;
- font-weight: bold;
+  height: 15vh;
+  width: 100%;
+  align-items: start;
+  display: flex;
+  font-family: "kakaobold";
+  font-size: 11vh;
+  color: #FAF4C0;
+  margin-left: 2vw;
+  font-weight: bold;
+  box-sizing: border-box;
 `;
 
 const BlogDescription = styled.div`
 height: 5vh;
-  font-size: 2vh;
-  font-family: KakaoRegular;
+width: 100%;
+display: flex; 
+align-items: center;
+  font-size: 2.3vh;
+  font-family: "kakao";
   color: #FFFFFF;
+  margin-left: 3vw;
 `;
+
 
 const ScheduleTitle = styled.div`
   height: 5vh;
   width: 70vw;
   font-size: 12pt;
-  font-family: KakaoBold;
+  font-family: "kakaobold";
   color: #FFFFFF;
   font-weight: bold;
   text-decoration: 2px yellow underline;
@@ -57,7 +71,7 @@ const ScheduleBox = styled.div`
   width: 40vw;
   color: #000000;
   border-radius: 50px;
-  font-family: KakaoBold;
+  font-family: "kakaobold";
   font-size: 10pt;
   font-weight: bold;
 `;
@@ -67,7 +81,7 @@ const Copybutton = styled.button`
   height: 5vh;
   background-color: #FFFFFF;
   color: #000000;
-  font-family: KakaoBold;
+  font-family: "kakaobold";
   font-size: 10pt;
   border-radius: 50px;
   font-weight: bold;
@@ -95,34 +109,33 @@ height: 7vh
 
 function Header() {
 
-    const [date, setDate] = useState('2019.07.07 ~ 2019.08.13');
-    const[title, setTitle] = useState('나의 첫 유럽 6개국 여행')
+  const [date, setDate] = useState('2019.07.07 ~ 2019.08.13');
+  const [title, setTitle] = useState('나의 첫 유럽 6개국 여행')
 
-    const navi = useNavigate();
+  const navi = useNavigate();
 
-    return (
+  return (
 
-        <Container>
-            <div>
-                <SiteName>Trip Again</SiteName>
-                <BlogDescription>좌충우돌 세계일주 여행기</BlogDescription>
-            </div>
-            <div>
-                <ScheduleTitle>{date}</ScheduleTitle>
-                <Schedule>
-                    <ScheduleBox>{title}</ScheduleBox>
-                    <EmptyBox></EmptyBox>
-                    <BtnBox>
-                    <Copybutton onClick={() => { navi(`/manageroute`) }}>목록으로</Copybutton>
-                    </BtnBox>
-                    <BtnBox>
-                    <Copybutton onClick={() => { navi(`/routeedit`) }}>일정 수정</Copybutton>
-                    </BtnBox>
-                </Schedule>
-            </div>
-        </Container>
+    <Container>
+      
+        <SiteName>Trip Again</SiteName>
+        <BlogDescription>좌충우돌 세계일주 여행기</BlogDescription>
+      
+        <ScheduleTitle>{date}</ScheduleTitle>
+        <Schedule>
+          <ScheduleBox>{title}</ScheduleBox>
+          <EmptyBox></EmptyBox>
+          <BtnBox>
+            <Copybutton onClick={() => { navi(`/manageroute`) }}>목록으로</Copybutton>
+          </BtnBox>
+          <BtnBox>
+            <Copybutton onClick={() => { navi(`/routeedit`) }}>일정 수정</Copybutton>
+          </BtnBox>
+        </Schedule>
+      
+    </Container>
 
-    )
+  )
 
 
 
