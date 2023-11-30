@@ -15,6 +15,8 @@ const Container = styled.div`
 const Posts = styled.div`
   width: 70vw;
   display: flex;
+  align-items: center;
+  justify-content: center;
   margin-top: 10px;
   flex-direction: column;
   background-color: #ffffff;
@@ -22,10 +24,8 @@ const Posts = styled.div`
 `;
 
 const PostBox = styled.div`
-  margin-top: 30px;
+  width: 61vw;
   background-color: #f2f2f2;
-  margin-left: 20px;
-  margin: 20px 20px;
   border-radius: 10px;
   padding: 10px 20px;
 `;

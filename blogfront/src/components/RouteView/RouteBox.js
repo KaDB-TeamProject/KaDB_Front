@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import data from './TempData'
 
 const PostBoxTitle = styled.div`
   font-family: KakaoBold;
@@ -11,44 +12,56 @@ const PostBoxTitle = styled.div`
 
 
 const PostItemBox = styled.div`
-  background-color: #FFFFFF;
-  margin-left: 20px;
-  border-radius: 10px;
-  margin-top: 20px;
+
+  width: 60vw;
+  height: 20vh;
   display: flex;
   flex-direction: row;
-  position: relative;
-  padding: 20px 20px;
-  margin: 30px 20px;
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  margin-top: 20px;
+
 `;
 
+const ImgBox = styled.div`
+
+width: 15vw;
+height: 20vh;
+display: flex;
+align-items: center;
+justify-content: center;
+
+
+`
+
 const PostItemimage = styled.img`
-  width: 100px;
-  height: 60px;
-  margin-top: 20px;
-  margin-left: 20px;
+  
+  height: 15vh;
+  width: auto;
+
 `;
 
 const PostItems = styled.div`
   display: flex;
   flex-direction: column;
-  margin-left: 20px;
-  margin-top: 20px;
+  width: 45vw;
+  height: 20vh;
+  justify-content: center;
+  align-items: start;
 `;
 
 const PostItemTitle = styled.div`
   font-family: KakaoBold;
   font-size: 12pt;
   font-weight: bold;
-  margin-left: 20px;
+
 `;
 
 const PostItem = styled.div`
   font-family: KakaoRegular;
   font-size: 9pt;
   color: #000000;
-  margin-left: 25px;
-  margin-top: 10px;
+  
 `;
 
 const SummaryItem = styled.div`
@@ -61,39 +74,36 @@ const SummaryItem = styled.div`
   right: 20px;
   `;
 
-function RouteBox(){
+function RouteBox() {
 
-    return(
-        <>
-        <PostBoxTitle>1일차 인천 - 런던</PostBoxTitle>
-        <PostItemBox>
-            <PostItemimage src="Incheon.jpg" alt = "Incheon"/>
-            <PostItems>
-                <PostItemTitle>인천 국제 공항</PostItemTitle>
-                <PostItem>여행 가기 전, 필수로 거쳐야 하는 관문</PostItem>
-                <SummaryItem>대한항공 / 13시간 소요 / 예상비용: 1,400,000원</SummaryItem>
-            </PostItems>
-        </PostItemBox>
-        <PostItemBox>
-            <PostItemimage src="Hisro.jpg" alt = "Hisro"/>
-            <PostItems>
-                <PostItemTitle>런던 히스로 공항</PostItemTitle>
-                <PostItem>런던의 관문 공항. 시내까지 약 50분 소요</PostItem>
-                <SummaryItem>히스로 익스프레스 / 20분 소요 / 예상비용: 14,000원</SummaryItem>
-            </PostItems>
-        </PostItemBox>
-        <PostItemBox>
-            <PostItemimage src="Hotel.jpg" alt = "Hotel"/>
-            <PostItems>
-                <PostItemTitle>그랜드 하얏트 호텔</PostItemTitle>
-                <PostItem>런던에서 가장 비싸고 유명한 호텔</PostItem>
-                <SummaryItem>예상비용: 14,000원</SummaryItem>
-            </PostItems>
-        </PostItemBox>
-        </>
+  return (
+    <>
+
+      {data.map(function (a) {
+
+        return (
+          <>
+            <PostBoxTitle>1일차 인천 - 런던</PostBoxTitle>
+            <PostItemBox>
+              <ImgBox>
+                <PostItemimage src={a.img} alt="Incheon" />
+              </ImgBox>
+              <PostItems>
+                <PostItemTitle>{a.title}</PostItemTitle>
+                <PostItem>{a.desc}</PostItem>
+                <SummaryItem>{a.transport}</SummaryItem>
+              </PostItems>
+            </PostItemBox>
+
+          </>
+        )
+
+      })}
+
+    </>
 
 
-    )
+  )
 
 
 }
