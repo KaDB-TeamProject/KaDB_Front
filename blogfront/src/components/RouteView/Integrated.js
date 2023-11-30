@@ -6,7 +6,7 @@ import RouteBox from "./RouteBox";
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  width: calc(100vw - 7rem);
+  width: calc(100vw - 8.1rem);
   background-color: #cf6e36;
   align-items: center;
   min-height: 100vh;
