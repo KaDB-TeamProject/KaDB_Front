@@ -1,15 +1,6 @@
 import styled from 'styled-components'
 import data from './TempData'
 
-const PostBoxTitle = styled.div`
-  font-family: KakaoBold;
-  font-size: 12pt;
-  font-weight: bold;
-  margin-left: 20px;
-  margin-top: 10px;
-  margin: 20px 20px;
-`;
-
 
 const PostItemBox = styled.div`
 
@@ -69,9 +60,7 @@ const SummaryItem = styled.div`
   font-size: 10pt;
   color: #000000;
   font-weight: bold;
-  position: absolute;
-  bottom: 10px;
-  right: 20px;
+
   `;
 
 function RouteBox() {
@@ -83,7 +72,7 @@ function RouteBox() {
 
         return (
           <>
-            <PostBoxTitle>1일차 인천 - 런던</PostBoxTitle>
+          
             <PostItemBox>
               <ImgBox>
                 <PostItemimage src={a.img} alt="Incheon" />

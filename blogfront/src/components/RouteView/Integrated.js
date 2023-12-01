@@ -27,7 +27,7 @@ const PostBox = styled.div`
   width: 61vw;
   background-color: #f2f2f2;
   border-radius: 10px;
-  padding: 10px 20px;
+  padding: 10px;
 `;
 
 function RouteView() {
