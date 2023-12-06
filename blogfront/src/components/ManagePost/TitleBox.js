@@ -1,38 +1,70 @@
 import styled from 'styled-components'
 
+const Container = styled.div`
+
+width: 100%;
+height: 20vh;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+
+
+`
+
+
 const ScheduleTitle = styled.div`
+width: 75vw;
   font-size: 12pt;
   font-family: KakaoBold;
   color: #ffffff;
   font-weight: bold;
   text-decoration: 2px yellow underline;
-  margin-left: 120px;
-  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  height: 7vh;
+ 
+  
 `;
 
 const ScheduleBox = styled.div`
   background-color: #ffffff;
   color: #000000;
-  padding: 20px 30px;
+  height: 7vh;
   border-radius: 50px;
-  margin: 20px 10px;
   font-family: KakaoBold;
   font-size: 10pt;
   font-weight: bold;
-  margin-left: 100px;
-  margin-right: 100px;
+  width: 60vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
+
+const PostItem = styled.textarea`
+  font-family: KakaoRegular;
+  font-size: 10pt;
+  color: #000000;
+  width: 55vw;
+  border: none;
+  height: 5vh;
+  outline: none;
+  resize: none;
+`;
+
 
 function TitleBox(){
 
+  const title = "2019.07.12 ~ 2019.08.13 유럽 5주 여행기"
+
     return(
-    <>
-    <ScheduleTitle>SCHEDULE</ScheduleTitle>
+    <Container>
+    <ScheduleTitle>Title</ScheduleTitle>
     <ScheduleBox>
-      Europe 2019.07.07 ~ 2019.08.13 영국 아일랜드 프랑스 스위스 오스트리아
-      체코
+      <PostItem>{title}</PostItem>
     </ScheduleBox>
-    </>
+    </Container>
     )
 
 }
