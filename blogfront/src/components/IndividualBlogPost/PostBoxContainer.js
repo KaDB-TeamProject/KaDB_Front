@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import data from './TempData'
 
 const PostBox = styled.div`
   margin-top: 20px;
@@ -82,39 +83,39 @@ const TagBox = styled.div`
 
 
 
-function PostBoxContainer(){
+function PostBoxContainer() {
 
-return(
+  return (
 
-    <PostBox>
-    <PostBoxTitle>1일차 인천 - 런던</PostBoxTitle>
-    <PostItemBox>
-      <PostItemTitle>인천 국제 공항 - 비용 12,000원</PostItemTitle>
-      <PostItem>
-      공항으로 가는 길은 언제나 설레요... 저는 항상 출국하는 날에는 설레서 잠을 못이룹니다.
-      비행 3시간 전에 도착을 해야 하기 때문에, 8시에 출발하는 막차를 타고 9시쯤 도착해 체크인을 마쳤습니다.
-      마침내 0시 20분 비행기에 탑승하였고, 0시 55분 비행기는 이륙했습니다!
-      </PostItem>
-    <PostItemImage src = "Incheon.jpg" alt = "Incheon" />
-    </PostItemBox>
-    <SummaryItem>대한항공 / 13시간 소요 / 비용 1,400,000원</SummaryItem>
-    <PostItemBox>
-      <PostItemTitle>런던 히스로 공항 - 비용 14,000원</PostItemTitle>
-      <PostItem>
-      우리 비행기는 12시간의 긴 비행 끝에 영국 런던 히스로 국제 공항에 도착했습니다. 우리나라 사람은 자동출입국 심사가 가능해서 바로 들어갈 수 있었어요!
-      </PostItem>
-    </PostItemBox>
-    <Tags>
-      <TagBox>#런던</TagBox>
-      <TagBox>#공항</TagBox>
-    </Tags>
-  </PostBox>
+    data.map(function(a){
+
+      return(
+      <PostBox>
+      <PostBoxTitle>1일차 인천 - 런던</PostBoxTitle>
+      <PostItemBox>
+        <PostItemTitle>{a.place}</PostItemTitle>
+        <PostItem>{a.text}</PostItem>
+        <PostItemImage src="Incheon.jpg" alt="Incheon" />
+      </PostItemBox>
+      <SummaryItem>대한항공 / 13시간 소요 / 비용 1,400,000원</SummaryItem>
+      <Tags>
+        <TagBox>#런던</TagBox>
+        <TagBox>#공항</TagBox>
+      </Tags>
+    </PostBox>
+
+
+      )
+
+    })
 
 
 
 
 
-)
+
+
+  )
 
 
 

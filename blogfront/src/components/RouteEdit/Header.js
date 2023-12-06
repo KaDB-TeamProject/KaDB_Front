@@ -1,15 +1,15 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components'
+import GlobalStyle from '../Fonts/GlobalStyle';
 
 const Container = styled.div`
 
 display: flex;
 flex-direction: column;
 height: 40vh;
-width: 100%;
+width: 90%;
 align-items: center;
-justify-content: center;
 box-sizing: border-box;
 
 `
@@ -22,6 +22,7 @@ const SiteName = styled.div`
   font-family: "kakaobold";
   font-size: 11vh;
   color: #FAF4C0;
+  margin-left: 2vw;
   font-weight: bold;
   box-sizing: border-box;
 `;
@@ -37,15 +38,15 @@ align-items: center;
   margin-left: 3vw;
 `;
 
+
 const ScheduleTitle = styled.div`
   height: 5vh;
   width: 70vw;
   font-size: 12pt;
-  font-family: KakaoBold;
+  font-family: "kakaobold";
   color: #FFFFFF;
   font-weight: bold;
   text-decoration: 2px yellow underline;
-  display: flex;
 
 `;
 
@@ -57,7 +58,7 @@ width: 70vw;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: start;
+  justify-content: center;
 `;
 
 
@@ -71,17 +72,33 @@ const ScheduleBox = styled.div`
   width: 40vw;
   color: #000000;
   border-radius: 50px;
-  font-family: KakaoBold;
+  font-family: "kakaobold";
   font-size: 10pt;
   font-weight: bold;
 `;
+
+const ChangeTitle = styled.textarea`
+
+resize: none;
+border: none;
+outline: none;
+height: 5vh;
+width: 35vw;
+display: flex;
+text-align: center;
+font-family: "kakao";
+font-size: 2vh;
+
+
+`
+
 
 const Copybutton = styled.button`
   width: 7rem;
   height: 5vh;
   background-color: #FFFFFF;
   color: #000000;
-  font-family: KakaoBold;
+  font-family: "kakaobold";
   font-size: 10pt;
   border-radius: 50px;
   font-weight: bold;
@@ -101,11 +118,13 @@ display: flex;
 align-items: right;
 justify-content: end;
 align-items: center;
-width: 20rem;
+width: 9rem;
 height: 7vh
 
 
 `
+
+
 
 function Header() {
 
@@ -118,19 +137,20 @@ function Header() {
 
     <Container>
 
-      <SiteName>Trip Again</SiteName>
-      <BlogDescription>좌충우돌 세계일주 여행기</BlogDescription>
+        <GlobalStyle />
+        <SiteName>Trip Again</SiteName>
+        <BlogDescription>좌충우돌 세계일주 여행기</BlogDescription>
+      
+        <ScheduleTitle>{date}</ScheduleTitle>
+        <Schedule>
+          <ScheduleBox><ChangeTitle>{title}</ChangeTitle></ScheduleBox>
+          <EmptyBox></EmptyBox>
+          <BtnBox>
+            <Copybutton onClick={() => { navi(`/manageroute`) }}>수정 완료</Copybutton>
+          </BtnBox>
 
-
-      <ScheduleTitle>{date}</ScheduleTitle>
-      <Schedule>
-        <ScheduleBox>{title}</ScheduleBox>
-        <EmptyBox></EmptyBox>
-        <BtnBox>
-          <Copybutton onClick={() => { navi(`/manageroute`) }}>수정 완료</Copybutton>
-        </BtnBox>
-      </Schedule>
-
+        </Schedule>
+      
     </Container>
 
   )
@@ -138,4 +158,4 @@ function Header() {
 
 
 }
-export default Header;
+export default Header; 

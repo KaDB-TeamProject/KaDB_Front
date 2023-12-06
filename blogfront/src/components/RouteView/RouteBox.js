@@ -131,6 +131,7 @@ function RouteBox() {
               <PostItems>
                 <PostItemTitle>{a.title}</PostItemTitle>
                 <PostItem>{a.desc}</PostItem>
+                <PostItem>예상 소요 비용: &#8361; {a.budget}</PostItem>
               </PostItems>
             </PostItemBox>
 
