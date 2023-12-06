@@ -161,7 +161,7 @@ justify-content: center;
 `
 const EmptyBox = styled.div`
 
-width: 20vw;
+width: 15vw;
 
 
 `
@@ -172,7 +172,6 @@ function ManagePost() {
   const [click2, setClick2] = useState(false);
   const [click3, setClick3] = useState(false);
   const [container, SetContainer] = useState([{ city: "", }]);
-  const [boxes, setBoxes] = useState([]);
   const [place, setPl] = useState("")
   const [cty, setCty] = useState("")
   const [index1, setIndex1] = useState();
@@ -242,8 +241,9 @@ function ManagePost() {
 
                       const newContainer = [...container]
 
+                      if(place.length > 0){
                       newContainer[i].place.splice(newContainer[i].place.length -1, 1)
-
+                      }
                       SetContainer(newContainer)
 
 
