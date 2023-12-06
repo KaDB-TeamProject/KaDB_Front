@@ -1,8 +1,7 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
-import Header from './Header';
-import RouteBox from './RouteBox';
+import React from "react";
+import styled from "styled-components";
+import Header from "./Header";
+import RouteBox from "./RouteBox";
 
 const Container = styled.div`
   display: flex;
@@ -13,38 +12,28 @@ const Container = styled.div`
   min-height: 100vh;
 `;
 
-
 const Posts = styled.div`
-
-width: 70vw;
+  width: 70vw;
   display: flex;
+  align-items: center;
+  justify-content: center;
   margin-top: 10px;
+  padding-top: 3vh;
   flex-direction: column;
-  background-color: #FFFFFF;
-  margin-left: 100px;
-  margin-right: 100px;
-  margin: 20px 100px;
+  background-color: #ffffff;
   border-radius: 10px;
 `;
 
 
-
-  function RouteEdit() {
-
-    const navi = useNavigate()
-    return (
+function RouteEdit() {
+  return (
     <Container>
-        <div>
-
-          <Header />
-
-          <Posts>
-            <RouteBox />
-          </Posts>
-        </div>
+      <Header />
+      <Posts>
+          <RouteBox />
+      </Posts>
     </Container>
-      );
-    }
-    
-    export default RouteEdit;
+  );
+}
 
+export default RouteEdit;

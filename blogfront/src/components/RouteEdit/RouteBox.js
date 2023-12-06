@@ -1,145 +1,186 @@
 import styled from 'styled-components'
+import data from '../RouteView/TempData'
+import GlobalStyle from '../Fonts/GlobalStyle';
+import deleteimg from './Source/bin.png'
+import upimg from './Source/up.png'
+import dwimg from './Source/down.png'
 
 const PostBox = styled.div`
-  margin-top: 30px;
-  background-color: #F2F2F2;
-  margin-left: 20px;
-  margin: 20px 20px;
+  width: 61vw;
+  background-color: #f2f2f2;
   border-radius: 10px;
-  padding: 10px 20px;
+  padding: 10px;
+  margin-top: 3vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
-const PostBoxTitle = styled.div`
-  font-family: KakaoBold;
-  font-size: 12pt;
-  font-weight: bold;
-  margin-left: 20px;
-  margin-top: 10px;
-  margin: 20px 20px;
-`;
+const TitleBox = styled.div`
+
+width: 55vw;
+font-family: "kakao";
+
+
+`
 
 const PostItemBox = styled.div`
-  background-color: #FFFFFF;
-  margin-left: 20px;
-  border-radius: 10px;
-  margin-top: 20px;
+
+  width: 55vw;
+  height: 20vh;
   display: flex;
   flex-direction: row;
-  position: relative;
-  padding: 20px 20px;
-  margin: 30px 20px;
+  background-color: #B4BFFF;
+  border-radius: 10px;
+  
+
 `;
 
-const ManageButton = styled.button`
-  background-color: #FDE8C4;
-  color: #000000;
-  padding: 5px 10px;
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  z-index: 1;
-  font-family: KakaoRegular;
-  font-size: 9pt;
-  border: none;
-`;
+const ImgBox = styled.div`
+
+width: 15vw;
+height: 20vh;
+display: flex;
+align-items: center;
+justify-content: center;
+
+
+`
 
 const PostItemimage = styled.img`
-  width: 100px;
-  height: 60px;
-  margin-top: 20px;
-  margin-left: 20px;
+  
+  height: 15vh;
+  width: auto;
+
 `;
 
 const PostItems = styled.div`
   display: flex;
   flex-direction: column;
-  margin-left: 20px;
-  margin-top: 20px;
+  width: 32vw;
+  height: 20vh;
+  justify-content: center;
+  align-items: start;
+  font-family: "kakao"
 `;
 
 const PostItemTitle = styled.div`
-  font-family: KakaoBold;
-  font-size: 12pt;
+  font-family: "kakaobold";
+  font-size: 3vh;
   font-weight: bold;
-  margin-left: 20px;
+
 `;
 
 const PostItem = styled.div`
-  font-family: KakaoRegular;
-  font-size: 9pt;
+  font-family: "kakao";
+  font-size: 2vh;
   color: #000000;
-  margin-left: 25px;
-  margin-top: 10px;
+  
 `;
 
 const SummaryItem = styled.div`
+width:55vw;
+display: flex;
+align-items: center;
+justify-content: center;
+height: 3vh;
   font-family: KakaoBold;
   font-size: 10pt;
   color: #000000;
   font-weight: bold;
-  position: absolute;
-  bottom: 10px;
-  right: 20px;
+
   `;
 
-const AddButton = styled.button`
-  background-color: #C6FF8C;
-  color: black;
-  padding: 10px 22px;
+  const ButtonItems = styled.div`
+  
+  width: 7vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  margin-top: 40px;
-  border-radius: 50px;
-  margin: 20px auto;
-  display: block;
+
+  `
+
+  const Button = styled.button `
+  
+  height: 6vh;
+  width: 7vw;
+  margin: 0;
+  background-color: #B4BFFF;
   border: none;
-`;
+
+  `
+  
+  const Imagebox = styled.img`
+  
+  height: 5vh;
+  width: auto;
+  
+  
+  `
+
+
+
 
 function RouteBox() {
 
-    
+  const group = data.reduce((a, i) => {
+
+    const key = i.date;
+
+    if (!a[key]) {
+
+      a[key] = []
 
 
+    }
 
-    return (
-        <PostBox>
-            <PostBoxTitle>1일차 인천 - 런던</PostBoxTitle>
+    a[key].push(i)
+
+    return a;
+
+
+  }, {})
+
+  const render = Object.entries(group).map(([a, i]) => (
+    <>
+      <GlobalStyle />
+      <PostBox key={a}>
+
+        <TitleBox>
+          {a}일차
+        </TitleBox>
+        {i.map((a) => (
+
+          <>
+            <SummaryItem>{a.transport}</SummaryItem>
             <PostItemBox>
-                <PostItemimage src="Incheon.jpg" alt="Incheon" />
-                <PostItems>
-                    <PostItemTitle>인천 국제 공항</PostItemTitle>
-                    <PostItem>여행 가기 전, 필수로 거쳐야 하는 관문</PostItem>
-                    <SummaryItem>대한항공 / 13시간 소요 / 예상비용: 1,400,000원</SummaryItem>
-                    <ManageButton>수정</ManageButton>
-                </PostItems>
+              <ImgBox>
+                <PostItemimage src={a.img} alt="Incheon" />
+              </ImgBox>
+              <PostItems>
+                <PostItemTitle>{a.title}</PostItemTitle>
+                <PostItem>{a.desc}</PostItem>
+              </PostItems>
+              <ButtonItems>
+                <Button><Imagebox src={upimg}/></Button>
+                <Button><Imagebox src={deleteimg}/></Button>
+                <Button><Imagebox src={dwimg}/></Button>
+              </ButtonItems>
             </PostItemBox>
-            <PostItemBox>
-                <PostItemimage src="Hisro.jpg" alt="Hisro" />
-                <PostItems>
-                    <PostItemTitle>런던 히스로 공항</PostItemTitle>
-                    <PostItem>런던의 관문 공항. 시내까지 약 50분 소요</PostItem>
-                    <SummaryItem>히스로 익스프레스 / 20분 소요 / 예상비용: 14,000원</SummaryItem>
-                    <ManageButton>수정</ManageButton>
-                </PostItems>
-            </PostItemBox>
-            <PostItemBox>
-                <PostItemimage src="Hotel.jpg" alt="Hotel" />
-                <PostItems>
-                    <PostItemTitle>그랜드 하얏트 호텔</PostItemTitle>
-                    <PostItem>런던에서 가장 비싸고 유명한 호텔</PostItem>
-                    <SummaryItem>예상비용: 14,000원</SummaryItem>
-                    <ManageButton>수정</ManageButton>
-                </PostItems>
-            </PostItemBox>
-            <PostBoxTitle>2일차 런던</PostBoxTitle>
-            <AddButton>수정 완료</AddButton>
-        </PostBox>
+
+          </>
+        ))}
 
 
+      </PostBox>
+
+    </>
+
+  ))
 
 
-    )
-
-
+  return <>{render}</>;
 
 }
 export default RouteBox;
