@@ -123,7 +123,8 @@ function RouteBox() {
         {i.map((a) => (
 
           <>
-            <SummaryItem>{a.transport}</SummaryItem>
+            
+            <SummaryItem>&#8595;{a.transport}</SummaryItem>
             <PostItemBox>
               <ImgBox>
                 <PostItemimage src={a.img} alt="Incheon" />
