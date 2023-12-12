@@ -7,6 +7,7 @@ import AddTransport from "../EnrollPost/AddTransport/Integrated";
 import CategorySelector from "./CategorySelector";
 import PostInput from "./PostBox";
 import TitleBox from "./TitleBox";
+import img from '../RouteView/Source/backimg.png'
 
 const Container = styled.div`
   height: 100vh;
@@ -14,7 +15,10 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   display: flex;
-  background-color: #FF6130;
+  background-image: url(${img});
+  background-size: cover;
+  background-position: center center; 
+  background-attachment: fixed;
 `;
 
 const PostTitle = styled.div`
