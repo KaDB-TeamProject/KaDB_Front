@@ -4,12 +4,16 @@ import CommentBoxContainer from "./CommentBoxContainer";
 import PostBoxContainer from "./PostBoxContainer";
 import TitleBoxContainer from "./TitleBoxContainer";
 import InfoContainer from "./InfoContainer";
+import img from '../RouteView/Source/backimg.png'
 
 const Container = styled.div`
   width: calc(100vw - 8.1rem);
   display: flex;
   flex-direction: column;
-  background-color: #cf6e36;
+  background-image: url(${img});
+  background-size: cover;
+  background-position: center center; 
+  background-attachment: fixed;
 `;
 
 const SiteName = styled.h1`
