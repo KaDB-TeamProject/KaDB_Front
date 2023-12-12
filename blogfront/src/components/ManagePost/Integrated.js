@@ -14,7 +14,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   display: flex;
-  background-color: #cf6e36;
+  background-color: #FF6130;
 `;
 
 const PostTitle = styled.div`

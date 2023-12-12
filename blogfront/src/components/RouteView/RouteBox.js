@@ -120,11 +120,10 @@ function RouteBox() {
         <TitleBox>
           {a}일차
         </TitleBox>
-        {i.map((a) => (
+        {i.map((a, i) => (
 
           <>
-            
-            <SummaryItem>&#8595;{a.transport}</SummaryItem>
+            {i > 0 && <SummaryItem>&#8595;{a.transport}</SummaryItem>}
             <PostItemBox>
               <ImgBox>
                 <PostItemimage src={a.img} alt="Incheon" />
