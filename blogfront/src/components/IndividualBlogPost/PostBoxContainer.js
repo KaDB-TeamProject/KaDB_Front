@@ -1,9 +1,10 @@
-import styled from 'styled-components'
-import data from './TempData'
+import styled from "styled-components";
+import data from "./TempData";
+import GlobalStyle from "../Fonts/GlobalStyle";
 
 const PostBox = styled.div`
   margin-top: 20px;
-  background-color: #F2F2F2;
+  background-color: #f2f2f2;
   margin-left: 20px;
   border-radius: 10px;
   margin: 20px 20px;
@@ -20,7 +21,7 @@ const PostBoxTitle = styled.div`
 `;
 
 const PostItemBox = styled.div`
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   margin-left: 20px;
   margin-top: 20px;
   margin: 20px 20px;
@@ -72,7 +73,7 @@ const Tags = styled.div`
 `;
 
 const TagBox = styled.div`
-  background-color: #1EFFF1;
+  background-color: #1efff1;
   color: #000000;
   font-family: KakaoRegular;
   font-size: 10pt;
@@ -81,42 +82,44 @@ const TagBox = styled.div`
   margin-left: 10px;
 `;
 
-
-
 function PostBoxContainer() {
+  const group = data.reduce((a, i) => {
+    const key = i.date;
 
-  return (
+    if (!a[key]) {
+      a[key] = [];
+    }
 
-    data.map(function(a){
+    a[key].push(i);
 
-      return(
+    return a;
+  }, {});
+
+  const render = Object.entries(group).map(([a, i],x ) => (
+    <>
+      <GlobalStyle />
       <PostBox>
-      <PostBoxTitle>1일차 인천 - 런던</PostBoxTitle>
-      <PostItemBox>
-        <PostItemTitle>{a.place}</PostItemTitle>
-        <PostItem>{a.text}</PostItem>
-        <PostItemImage src="Incheon.jpg" alt="Incheon" />
-      </PostItemBox>
-      <SummaryItem>대한항공 / 13시간 소요 / 비용 1,400,000원</SummaryItem>
-      <Tags>
-        <TagBox>#런던</TagBox>
-        <TagBox>#공항</TagBox>
-      </Tags>
-    </PostBox>
+        <PostBoxTitle>{a}일차</PostBoxTitle>
+        {i.map((a, y) => (
+          <>
+            {(x !== 0 || y !== 0) && <SummaryItem>&#8595;{a.transport}</SummaryItem>}
+            <PostItemBox>
+              <PostItemTitle>{a.place}</PostItemTitle>
+              <PostItem>{a.text}</PostItem>
+              <PostItemImage src="Incheon.jpg" alt="Incheon" />
+            </PostItemBox>
+          
+            <Tags>
+              <TagBox>#런던</TagBox>
+              <TagBox>#공항</TagBox>
+            </Tags>
+          </>
+        ))}
+      </PostBox>
+    </>
+  ));
 
-
-      )
-
-    })
-
-
-
-
-
-
-
-  )
-
+  return <>{render}</>;
 
 
 }
