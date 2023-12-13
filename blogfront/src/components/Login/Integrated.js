@@ -60,7 +60,7 @@ function Login(){
             <LoginLogo src={logoIcon}/>
             <InputBox src={IDIcon} text="ID" type="text" setValue={setId}/>
             <InputBox src={passwordIcon} text="PASSWORD" type="password" setValue={setPassword}/>
-            <LoginFP>Forgot Password?</LoginFP>
+            <LoginFP onClick={()=>{navigator(`/pwresetl`)}}>Forgot Password?</LoginFP>
             <Button text="LOGIN" onClick={()=>{postlogin(id, password)}}/>
         </LoginDiv>
     )
