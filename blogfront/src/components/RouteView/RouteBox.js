@@ -87,14 +87,14 @@ function RouteBox() {
     return a;
   }, {});
 
-  const render = Object.entries(group).map(([a, i]) => (
+  const render = Object.entries(group).map(([a, i], x) => (
     <>
       <GlobalStyle />
       <PostBox key={a}>
         <TitleBox>{a}일차</TitleBox>
-        {i.map((a) => (
+        {i.map((a, y) => (
           <>
-            <SummaryItem>&#8595;{a.transport}</SummaryItem>
+            {(x !== 0 || y !== 0) && <SummaryItem>&#8595;{a.transport}</SummaryItem>}
             <PostItemBox>
               <ImgBox>
                 <PostItemimage src={a.img} alt="Incheon" />

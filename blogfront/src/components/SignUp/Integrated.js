@@ -18,12 +18,20 @@ const PWResetLDiv = styled.div`
     flex-direction : column;
     align-items : center;
     background-color : #09006B;
+    min-height: 100vh;
 `
 const Logo = styled.img`
     width : 15rem;
     height : 15rem;
     margin-bottom : 3rem;
 `
+
+const LoginFP = styled.div`
+    width: 27rem;
+    color : white;
+    margin-bottom:1rem;
+`
+
 function SignUp(){
     const [id,setId] = useState('')
     const [password, setPassword] = useState('')
@@ -70,6 +78,7 @@ function SignUp(){
             <InputBox src={IDIcon} type="date" setValue={setBirthday}/>
             <InputBox src={IDIcon} text="FAVORITE PLACE(OPTION)" type=""/>
             <Button text="회원가입" onClick={()=>{postsignup(id,password,email,phonenum,birthday)}}/>
+            <LoginFP onClick={()=>{navigator(`/login`)}}>비밀번호가 이미 있으신가요?</LoginFP>
         </PWResetLDiv>
     )
 }
