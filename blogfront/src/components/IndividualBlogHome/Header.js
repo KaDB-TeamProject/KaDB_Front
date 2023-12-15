@@ -199,6 +199,7 @@ function Header() {
             팔로우하기
           </FollowButton>
         </ButtonContainer>
+        
 
       </InfoContainer>
     </Container>

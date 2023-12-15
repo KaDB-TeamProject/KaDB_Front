@@ -13,7 +13,7 @@ const Container = styled.div`
   background-position: center center; 
   background-attachment: fixed;
   overflow-x: hidden;
-  width: calc(100vw - 8.1rem);
+  width: calc(100vw - 8.3rem);
 `;
 
 
