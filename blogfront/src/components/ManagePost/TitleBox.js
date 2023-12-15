@@ -54,18 +54,19 @@ const PostItem = styled.textarea`
 `;
 
 
-function TitleBox(){
+function TitleBox() {
 
   const title = "2019.07.12 ~ 2019.08.13 유럽 5주 여행기"
 
-    return(
+  return (
     <Container>
-    <ScheduleTitle>Title</ScheduleTitle>
-    <ScheduleBox>
-      <PostItem>{title}</PostItem>
-    </ScheduleBox>
+      
+      <ScheduleTitle>Title</ScheduleTitle>
+      <ScheduleBox>
+        <PostItem>{title}</PostItem>
+      </ScheduleBox>
     </Container>
-    )
+  )
 
 }
 export default TitleBox;

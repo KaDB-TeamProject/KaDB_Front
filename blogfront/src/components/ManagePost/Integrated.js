@@ -237,6 +237,8 @@ function ManagePost() {
                       setClick(false);
                       setClick3(false);
                       setIndex2(i)
+                      console.log(container)
+                      console.log(container.place)
                     }}
                   >장소 추가</ManageButton>
 
