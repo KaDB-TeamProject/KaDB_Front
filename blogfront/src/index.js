@@ -8,6 +8,7 @@ import SignUp from './components/SignUp/Integrated';
 import Main from './components/Main/Integrated';
 import BlogList from './components/BlogList/Integrated';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import 'antd/dist/antd'
 
 import PWResetL from './components/PWResetL/Integrated';
 import Individual from './components/Individual/Integrated';
