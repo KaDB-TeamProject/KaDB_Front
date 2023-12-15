@@ -1,37 +1,42 @@
 import styled from "styled-components";
-import data from "./TempData";
 import GlobalStyle from "../Fonts/GlobalStyle";
+import ImageSlide from "./ImageSlide";
 
 const PostBox = styled.div`
+
+  width: 70vw;
   margin-top: 20px;
   background-color: #f2f2f2;
-  margin-left: 20px;
-  border-radius: 10px;
-  margin: 20px 20px;
-  padding: 10px 10px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const PostBoxTitle = styled.div`
-  font-family: KakaoBold;
-  font-size: 12pt;
+  display: flex;
+  height: 5vh;
+  width: 65vw;
+  align-items: center;
+  font-family: 'kakao';
+  font-size: 3vh;
   font-weight: bold;
-  margin-left: 20px;
-  margin-top: 20px;
-  margin: 20px 22px;
+
 `;
 
 const PostItemBox = styled.div`
   background-color: #ffffff;
-  margin-left: 20px;
-  margin-top: 20px;
-  margin: 20px 20px;
   border-radius: 10px;
-  padding: 10px 10px;
+  width: 65vw;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const PostItemTitle = styled.div`
-  font-family: KakaoBold;
-  font-size: 12pt;
+  font-family: 'kakao';
+  font-size: 2.5vh;
   font-weight: bold;
   margin-left: 20px;
   margin-top: 10px;
@@ -39,21 +44,17 @@ const PostItemTitle = styled.div`
 `;
 
 const PostItem = styled.div`
-  font-family: KakaoRegular;
-  font-size: 10pt;
+  font-family: 'kakao';
+  font-size: 2vh;
   color: #000000;
   margin-left: 20px;
   margin: 20px 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
-const PostItemImage = styled.img`
-  width: 200px;
-  height: 150px;
-  margin-top: 20px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-`;
+
 
 const SummaryItem = styled.div`
   font-family: KakaoBold;
@@ -65,11 +66,12 @@ const SummaryItem = styled.div`
 `;
 
 const Tags = styled.div`
+  width: 65vw;
+  height: 7vh;
   display: flex;
-  margin-top: 20px;
-  margin-left: 20px;
   flex-direction: row;
-  margin: 10px 20px;
+  align-items: center;
+  
 `;
 
 const TagBox = styled.div`
@@ -82,44 +84,95 @@ const TagBox = styled.div`
   margin-left: 10px;
 `;
 
-function PostBoxContainer() {
-  const group = data.reduce((a, i) => {
-    const key = i.date;
+const PostItemImage = styled.img`
+  width: 49vw;
+  height: auto;
+  display: block;
+`;
 
-    if (!a[key]) {
-      a[key] = [];
-    }
+const ImageBox = styled.div`
+width: 49vw;
+height: 60vh;
+display: flex;
+overflow: hidden;
+align-items: center;
+justify-content: center;
 
-    a[key].push(i);
+`
 
-    return a;
-  }, {});
+function PostBoxContainer(props) {
 
-  const render = Object.entries(group).map(([a, i],x ) => (
+
+  return (
     <>
       <GlobalStyle />
       <PostBox>
-        <PostBoxTitle>{a}일차</PostBoxTitle>
-        {i.map((a, y) => (
-          <>
-            {(x !== 0 || y !== 0) && <SummaryItem>&#8595;{a.transport}</SummaryItem>}
-            <PostItemBox>
-              <PostItemTitle>{a.place}</PostItemTitle>
-              <PostItem>{a.text}</PostItem>
-              <PostItemImage src="Incheon.jpg" alt="Incheon" />
-            </PostItemBox>
-          
-            <Tags>
-              <TagBox>#런던</TagBox>
-              <TagBox>#공항</TagBox>
-            </Tags>
-          </>
-        ))}
+        {props.data.map((a, i) => {
+
+          return (
+            <>
+              <PostBoxTitle>{i + 1}일차</PostBoxTitle>
+              {a.paragraph.map((b, k) => {
+                return (
+                  <>
+
+                    <PostItemBox>
+                      <ImageSlide images={b.images}/>
+                      {/* <ImageBox>
+                        {b.images.map((e, n) => {
+
+                          return (
+                            <PostItemImage src={e} alt="Incheon" />
+                          )
+
+                        })}
+                      </ImageBox> */}
+                      <PostItemTitle>{b.place}</PostItemTitle>
+                      <PostItem>{b.text}</PostItem>
+                    </PostItemBox>
+                    <Tags>
+                      {b.tags.map((c, l) => {
+
+                        return (
+
+                          <TagBox>{c}</TagBox>
+
+                        )
+
+                      })}
+                    </Tags>
+
+                    {b.transports.map((d, m) => {
+                      return (
+                        <SummaryItem>&#8595;&nbsp;
+                          {d.transport} &#8739;&nbsp;
+                          {d.transport_name} &#8739;&nbsp;
+                          {d.money} &#8739;&nbsp;
+                          {d.time}
+                        </SummaryItem>
+                      )
+
+                    })}
+
+
+                  </>
+                )
+
+
+              })}
+
+            </>
+          )
+
+        })}
+
+
+
       </PostBox>
     </>
-  ));
 
-  return <>{render}</>;
+
+  )
 
 
 }
