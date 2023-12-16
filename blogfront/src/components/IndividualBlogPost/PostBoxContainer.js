@@ -84,22 +84,6 @@ const TagBox = styled.div`
   margin-left: 10px;
 `;
 
-const PostItemImage = styled.img`
-  width: 49vw;
-  height: auto;
-  display: block;
-`;
-
-const ImageBox = styled.div`
-width: 49vw;
-height: 60vh;
-display: flex;
-overflow: hidden;
-align-items: center;
-justify-content: center;
-
-`
-
 function PostBoxContainer(props) {
 
 
@@ -118,15 +102,6 @@ function PostBoxContainer(props) {
 
                     <PostItemBox>
                       <ImageSlide images={b.images}/>
-                      {/* <ImageBox>
-                        {b.images.map((e, n) => {
-
-                          return (
-                            <PostItemImage src={e} alt="Incheon" />
-                          )
-
-                        })}
-                      </ImageBox> */}
                       <PostItemTitle>{b.place}</PostItemTitle>
                       <PostItem>{b.text}</PostItem>
                     </PostItemBox>
