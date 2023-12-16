@@ -14,15 +14,6 @@ const PopularPost = styled.div`
   transition: transform 0.3s, z-index 0.3s;
   position: relative;
 
-
-  &:hover {
-    transform: translateY(10vh);
-    position: absolute;
-    z-index: 1;
-    width: 15vw;
-    height: 40vh;
-
-  }
 `;
 
 
@@ -54,13 +45,13 @@ border-radius: 15px 15px 0 0;
 const PostImage = styled.img`
   width: 15vw;
   height: auto;
-
   border-radius: 15px 15px 0 0;
 `;
 
 function PopularBlogList() {
   const navi = useNavigate();
   console.log(data)
+  
   return (
 
 
@@ -73,7 +64,8 @@ function PopularBlogList() {
         <PopularPost
           onClick={() => {
             navi("/blogpost");
-          }}>
+          }}
+          >
           <ImageBox>
             <PostImage src={a.img} alt="Europe" />
           </ImageBox>
