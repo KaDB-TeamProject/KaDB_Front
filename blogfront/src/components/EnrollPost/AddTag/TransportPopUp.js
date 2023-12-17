@@ -49,7 +49,14 @@ align-items: center;
 `
 
 function PlacePopUp(props) {
+
+    const [tag, setTag] = useState('')
     
+    const onchange = (val) =>{
+
+        setTag(val)
+
+    }
 
 
     return (
@@ -61,12 +68,12 @@ function PlacePopUp(props) {
 
                 <ContentBox>
 
-                <InputBox text="게시글에 대한 태그를 입력해주세요!"/>
+                <InputBox text="게시글에 대한 태그를 입력해주세요!" onchange = {onchange}/>
 
                 </ContentBox>
 
 
-                <Button onClick={() =>{ props.closeWindow(false);  props.addTag()}}>제출하기</Button>
+                <Button onClick={() =>{ props.closeWindow(false);  props.addTag(tag)}}>제출하기</Button>
             </CityBox>
 
         </Container>

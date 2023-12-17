@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import data from './TempPopularPost'
+import GlobalStyle from "../Fonts/GlobalStyle";
 
 const PopularPost = styled.div`
   width: 15vw;
@@ -22,8 +23,8 @@ const PostTags = styled.div`
 height: 10vh;
 width: 15vw;
 padding-top: 6%;
-  font-size: 9pt;
-  font-family: KakaoRegular;
+  font-size: 10pt;
+  font-family: 'kakao';
   color: #000000;
   align-items: center;
   justify-content: center;
@@ -65,7 +66,9 @@ function PopularBlogList() {
           onClick={() => {
             navi("/blogpost");
           }}
+          
           >
+            <GlobalStyle />
           <ImageBox>
             <PostImage src={a.img} alt="Europe" />
           </ImageBox>
