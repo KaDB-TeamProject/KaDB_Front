@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import styled from 'styled-components'
 
 const Container = styled.div`
@@ -54,16 +55,23 @@ const PostItem = styled.textarea`
 `;
 
 
-function TitleBox() {
+function TitleBox(props) {
 
-  const title = "2019.07.12 ~ 2019.08.13 유럽 5주 여행기"
+
+  const changeTitle = (e) =>{
+
+    const val = e.target.value
+    props.setTitle(val);
+
+
+  }
 
   return (
     <Container>
       
       <ScheduleTitle>Title</ScheduleTitle>
       <ScheduleBox>
-        <PostItem>{title}</PostItem>
+        <PostItem onChange={changeTitle}></PostItem>
       </ScheduleBox>
     </Container>
   )
