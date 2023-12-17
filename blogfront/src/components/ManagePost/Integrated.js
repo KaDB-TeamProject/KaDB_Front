@@ -9,9 +9,10 @@ import CategorySelector from "./CategorySelector";
 import PostInput from "./PostBox";
 import TitleBox from "./TitleBox";
 import img from "../RouteView/Source/backimg.png";
-import { DownloadOutlined } from "@ant-design/icons";
-import { Button, Divider, Flex, Radio } from "antd";
+import { SaveOutlined } from "@ant-design/icons";
+import { Button} from "antd";
 import GlobalStyle from "../Fonts/GlobalStyle";
+import { FloatButton } from 'antd';
 
 const Container = styled.div`
   height: 100vh;
@@ -192,7 +193,21 @@ function ManagePost() {
   const [index2, setIndex2] = useState();
   const [selectCate, setSelectCate] = useState(); //카테고리 값 저장
   const [tit, setTit] = useState() //제목 값 저장
-
+  const [date, setDate] = useState([
+    {
+      paragraph: [
+        {
+          place: '',
+          text: '',
+          images: [],
+          tags: [],
+          transports: [{ transport: '', transport_name: '', money: '', time: '' }],
+        },
+      ],
+    },
+  ]); //일자별 데이터 저장
+  const [transport, setTransport] = useState({transport: "", transport_name: "", money: "", time: ""})
+ 
   const closeWindow = (val) => {
     setClick(val);
   };
@@ -207,24 +222,25 @@ function ManagePost() {
     setClick4(val)
   }
 
-  const setCategory = (val)=> {
-
+  const setCategory = (val) => {
     setSelectCate(val);
-
   }
-  
-  const setTitle = (val) =>{
 
+  const setTitle = (val) => {
     setTit(val);
-    console.log(tit)
+  }
+
+  const getTransport = (val) => {
+
+    setTransport(val)
+
   }
 
   return (
     <Container>
       <GlobalStyle />
-      <CategorySelector setCategory = {setCategory}/>
-      <TitleBox setTitle = {setTitle}/>
-
+      <CategorySelector setCategory={setCategory} />
+      <TitleBox setTitle={setTitle} />
       <PostTitle>POST</PostTitle>
 
       {container.map(function (c, i) {
@@ -236,7 +252,11 @@ function ManagePost() {
                   <PostBoxTitle>
                     {i + 1}일차 {c.city}
                   </PostBoxTitle>
-                  <SaveButton>{selectCate}</SaveButton>
+                  <Button
+                    shape="circle"
+                    type="primary"
+                    icon={<SaveOutlined />}
+                  />
                 </HeaderBox>
 
                 {Array.isArray(c.place) &&
@@ -253,14 +273,6 @@ function ManagePost() {
 
                 <Manages>
                   <TagButton># 태그 추가하기</TagButton>
-                  <ManageButton
-                    onClick={() => {
-                      setClick3(true);
-                      setClick(false);
-                      setClick2(false);
-                      setClick4(false);
-                    }}
-                  >이동수단 추가</ManageButton>
                   <ManageButton
                     onClick={() => {
                       setClick2(true);
@@ -290,14 +302,23 @@ function ManagePost() {
                   >
                     장소 삭제
                   </ManageButton>
+
+                  <ManageButton
+                    onClick={() => {
+                      setClick3(true);
+                      setClick(false);
+                      setClick2(false);
+                      setClick4(false);
+                    }}
+                  >이동수단 추가</ManageButton>
                   <ImageButton onClick={() => {
-                  setClick(false);
-                  setClick2(false);
-                  setClick3(false);
-                  setClick4(true);
-                  setIndex1(i);
-                }}>이미지 추가하기</ImageButton>
-                  
+                    setClick(false);
+                    setClick2(false);
+                    setClick3(false);
+                    setClick4(true);
+                    setIndex1(i);
+                  }}>이미지 추가하기</ImageButton>
+
                 </Manages>
               </PostBox>
 
@@ -346,7 +367,7 @@ function ManagePost() {
                 />
               )}
               {click4 && <AddImage closeWindow4={closeWindow4} />}
-              {click3 && <AddTransport closeWindow3={closeWindow3} />}
+              {click3 && <AddTransport closeWindow3={closeWindow3} sendTransport={getTransport}/>}
             </Posts>
             <PostButton>
               <AddButton
