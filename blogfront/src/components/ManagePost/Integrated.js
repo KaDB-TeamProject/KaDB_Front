@@ -10,9 +10,8 @@ import PostInput from "./PostBox";
 import TitleBox from "./TitleBox";
 import img from "../RouteView/Source/backimg.png";
 import { SaveOutlined } from "@ant-design/icons";
-import { Button} from "antd";
+import { Button } from "antd";
 import GlobalStyle from "../Fonts/GlobalStyle";
-import { FloatButton } from 'antd';
 
 const Container = styled.div`
   height: 100vh;
@@ -75,19 +74,6 @@ const PostBoxTitle = styled.div`
   font-size: 12pt;
   font-weight: bold;
   margin-bottom: 10px;
-`;
-
-const SaveButton = styled.button`
-  background-color: #fbfb49;
-  color: #000000;
-  border-radius: 50px;
-  padding: 10px;
-  width: 5rem;
-  height: 35px;
-  font-family: KakaoBold;
-  font-size: 10pt;
-  font-weight: bold;
-  border: none;
 `;
 
 const PostItemBox = styled.div`
@@ -186,7 +172,6 @@ function ManagePost() {
   const [click2, setClick2] = useState(false);
   const [click3, setClick3] = useState(false);
   const [click4, setClick4] = useState(false);
-  const [container, SetContainer] = useState([{ city: "" }]);
   const [place, setPl] = useState("");
   const [cty, setCty] = useState("");
   const [index1, setIndex1] = useState();
@@ -195,11 +180,12 @@ function ManagePost() {
   const [tit, setTit] = useState() //제목 값 저장
   const [date, setDate] = useState([
     {
+      city: "", 
       paragraph: [],
     },
   ]); //일자별 데이터 저장
-  const [transport, setTransport] = useState({transport: "", transport_name: "", money: "", time: ""})
- 
+  const [transport, setTransport] = useState({ transport: "", transport_name: "", money: "", time: "" })
+
   const closeWindow = (val) => {
     setClick(val);
   };
@@ -282,12 +268,12 @@ function ManagePost() {
                       const newContainer = [...date];
 
                       if (c.paragraph.length > 0) {
-                        newContainer[i].place.splice(
-                          newContainer[i].place.length - 1,
+                        newContainer[i].paragraph.splice(
+                          newContainer[i].paragraph.length - 1,
                           1
                         );
                       }
-                      SetContainer(newContainer);
+                      setDate(newContainer)
                     }}
                   >
                     장소 삭제
@@ -320,8 +306,7 @@ function ManagePost() {
                     setCty(cit);
                   }}
                   addContainer={() => {
-                    const newItem = {};
-                    //newItem.city = cty;
+                    const newItem = {city: cty};
 
                     setDate((prev) => {
                       const updatedContainer = [
@@ -336,28 +321,36 @@ function ManagePost() {
               )}
               {click2 && (
                 <AddPlace
+                  setPlace={(val) => {
+                    setPl(val);
+                  }}
                   closeWindow2={closeWindow2}
                   addBox={() => {
-                    const newPlace = { p: place };
-
+                   
+                    const newPlace = {
+                      paragraph: [
+                        {
+                          place: place,
+                          text: '',
+                          images: [],
+                          tags: [],
+                          transports: [{ transport: '', transport_name: '', money: '', time: '' }],
+                        },
+                      ],
+                    };
+                  
                     const newContainer = [...date];
-
-                    if (newContainer[index2]?.place) {
-                      newContainer[index2].place.push(newPlace);
-                    } else {
-                      newContainer[index2].place = [newPlace];
+                    if (!newContainer[index2]?.paragraph) {
+                      newContainer[index2].paragraph = [];
                     }
-
+                    newContainer[index2].paragraph.push({ ...newPlace.paragraph[0] });
                     setDate(newContainer);
-                  }}
-                  setPlace={(val) => {
-                    const p = val;
-                    setPl(p);
+
                   }}
                 />
               )}
               {click4 && <AddImage closeWindow4={closeWindow4} />}
-              {click3 && <AddTransport closeWindow3={closeWindow3} sendTransport={getTransport}/>}
+              {click3 && <AddTransport closeWindow3={closeWindow3} sendTransport={getTransport} />}
             </Posts>
             <PostButton>
               <AddButton

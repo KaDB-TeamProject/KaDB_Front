@@ -38,7 +38,8 @@ const BlogDescription = styled.div`
 const Posts = styled.div`
   width: 75vw;
   display: flex;
-  margin-top: 10px;
+  margin: 10px;
+  padding: 10px;
   flex-direction: column;
   align-items: center;
   background-color: #ffffff;
