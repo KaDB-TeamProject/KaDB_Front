@@ -95,7 +95,7 @@ function PostBoxContainer(props) {
 
           return (
             <>
-              <PostBoxTitle>{i + 1}일차</PostBoxTitle>
+              <PostBoxTitle>{i + 1}일차 - {a.city}</PostBoxTitle>
               {a.paragraph.map((b, k) => {
                 return (
                   <>
