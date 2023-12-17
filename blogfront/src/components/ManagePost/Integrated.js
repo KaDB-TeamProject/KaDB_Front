@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import AddCity from "../EnrollPost/AddCity/Integrated";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import AddPlace from "../EnrollPost/AddPlace/Integrated";
 import AddTransport from "../EnrollPost/AddTransport/Integrated";
 import AddImage from '../EnrollPost/AddImage/Integrated'
@@ -12,6 +12,7 @@ import img from "../RouteView/Source/backimg.png";
 import { SaveOutlined } from "@ant-design/icons";
 import { Button } from "antd";
 import GlobalStyle from "../Fonts/GlobalStyle";
+import AddTag from '../EnrollPost/AddTag/Integrated'
 
 const Container = styled.div`
   height: 100vh;
@@ -172,6 +173,7 @@ function ManagePost() {
   const [click2, setClick2] = useState(false);
   const [click3, setClick3] = useState(false);
   const [click4, setClick4] = useState(false);
+  const [click5, setClick5] = useState(false);
   const [place, setPl] = useState("");
   const [cty, setCty] = useState("");
   const [index1, setIndex1] = useState();
@@ -180,11 +182,10 @@ function ManagePost() {
   const [tit, setTit] = useState() //제목 값 저장
   const [date, setDate] = useState([
     {
-      city: "", 
+      city: "",
       paragraph: [],
     },
   ]); //일자별 데이터 저장
-  const [transport, setTransport] = useState({ transport: "", transport_name: "", money: "", time: "" })
 
   const closeWindow = (val) => {
     setClick(val);
@@ -199,6 +200,9 @@ function ManagePost() {
   const closeWindow4 = (val) => {
     setClick4(val)
   }
+  const closeWindow5 = (val) => {
+    setClick5(val)
+  }
 
   const setCategory = (val) => {
     setSelectCate(val);
@@ -208,11 +212,10 @@ function ManagePost() {
     setTit(val);
   }
 
-  const getTransport = (val) => {
 
-    setTransport(val)
-
-  }
+  useEffect(() => {
+    console.log("paragraph[0]:", date[0]?.paragraph);
+  }, [date])
 
   return (
     <Container>
@@ -250,13 +253,24 @@ function ManagePost() {
                   })}
 
                 <Manages>
-                  <TagButton># 태그 추가하기</TagButton>
+                  <TagButton
+                    onClick={() => {
+                      setClick5(true);
+                      setClick(false);
+                      setClick3(false);
+                      setClick4(false);
+                      setClick2(false);
+                      setIndex2(i);
+                    }}
+
+                  ># 태그 추가하기</TagButton>
                   <ManageButton
                     onClick={() => {
                       setClick2(true);
                       setClick(false);
                       setClick3(false);
                       setClick4(false);
+                      setClick5(false);
                       setIndex2(i);
                     }}
                   >
@@ -285,6 +299,7 @@ function ManagePost() {
                       setClick(false);
                       setClick2(false);
                       setClick4(false);
+                      setClick5(false);
                     }}
                   >이동수단 추가</ManageButton>
                   <ImageButton onClick={() => {
@@ -292,6 +307,7 @@ function ManagePost() {
                     setClick2(false);
                     setClick3(false);
                     setClick4(true);
+                    setClick5(false);
                     setIndex1(i);
                   }}>이미지 추가하기</ImageButton>
 
@@ -306,7 +322,7 @@ function ManagePost() {
                     setCty(cit);
                   }}
                   addContainer={() => {
-                    const newItem = {city: cty};
+                    const newItem = { city: cty };
 
                     setDate((prev) => {
                       const updatedContainer = [
@@ -326,7 +342,7 @@ function ManagePost() {
                   }}
                   closeWindow2={closeWindow2}
                   addBox={() => {
-                   
+
                     const newPlace = {
                       paragraph: [
                         {
@@ -334,11 +350,11 @@ function ManagePost() {
                           text: '',
                           images: [],
                           tags: [],
-                          transports: [{ transport: '', transport_name: '', money: '', time: '' }],
+                          transports: [],
                         },
                       ],
                     };
-                  
+
                     const newContainer = [...date];
                     if (!newContainer[index2]?.paragraph) {
                       newContainer[index2].paragraph = [];
@@ -349,8 +365,54 @@ function ManagePost() {
                   }}
                 />
               )}
+              {click5 && <AddTag
+                closeWindow5={closeWindow5}
+                addTag={(tag) => {
+                  const tagsArray = tag.split(' '); // 띄어쓰기를 기준으로 나누어 배열 생성
+
+                  setDate((prevDate) => {
+                    const lastIndex = prevDate[index2]?.paragraph.length - 1;
+                    return prevDate.map((day, index) => {
+                      if (index === index2 && day.paragraph[lastIndex]) {
+                        day.paragraph[lastIndex].tags = tagsArray; // tags에 tagsArray 할당
+                      }
+                      return day;
+                    });
+                  });
+                }}
+              />}
               {click4 && <AddImage closeWindow4={closeWindow4} />}
-              {click3 && <AddTransport closeWindow3={closeWindow3} sendTransport={getTransport} />}
+              {click3 && (
+                <AddTransport
+                  closeWindow3={closeWindow3}
+                  addTransport={(newTransport) => {
+                    setDate((prevDate) => {
+                      const lastIndex = prevDate[index2]?.paragraph.length - 1;
+
+                      if (lastIndex !== undefined && prevDate[index2]?.paragraph[lastIndex]) {
+                        const currentTransports = prevDate[index2].paragraph[lastIndex].transports || [];
+                        return prevDate.map((day, index) =>
+                          index === index2
+                            ? {
+                              ...day,
+                              paragraph: day.paragraph.map((paragraph, paragraphIndex) =>
+                                paragraphIndex === lastIndex
+                                  ? {
+                                    ...paragraph,
+                                    transports: [...currentTransports, newTransport],
+                                  }
+                                  : paragraph
+                              ),
+                            }
+                            : day
+                        );
+                      }
+                      return prevDate;
+                    });
+                  }}
+                />
+              )}
+
             </Posts>
             <PostButton>
               <AddButton
@@ -359,6 +421,7 @@ function ManagePost() {
                   setClick2(false);
                   setClick3(false);
                   setClick4(false);
+                  setClick5(false);
                   setIndex1(i);
                 }}
               >일정 추가하기</AddButton>
