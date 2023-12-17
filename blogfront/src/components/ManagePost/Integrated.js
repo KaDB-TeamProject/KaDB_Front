@@ -246,7 +246,13 @@ function ManagePost() {
                       <div key={k}>
                         <PostItemBox>
                           <PlaceTitle>{p.place}</PlaceTitle>
-                          <PostInput />
+                          <PostInput onchange={(val)=>{
+
+                            p.text = val;
+                           
+
+
+                          }}/>
                         </PostItemBox>
                       </div>
                     );
@@ -368,13 +374,13 @@ function ManagePost() {
               {click5 && <AddTag
                 closeWindow5={closeWindow5}
                 addTag={(tag) => {
-                  const tagsArray = tag.split(' '); // 띄어쓰기를 기준으로 나누어 배열 생성
+                  const tagsArray = tag.split(' ');
 
                   setDate((prevDate) => {
                     const lastIndex = prevDate[index2]?.paragraph.length - 1;
                     return prevDate.map((day, index) => {
                       if (index === index2 && day.paragraph[lastIndex]) {
-                        day.paragraph[lastIndex].tags = tagsArray; // tags에 tagsArray 할당
+                        day.paragraph[lastIndex].tags = tagsArray;
                       }
                       return day;
                     });

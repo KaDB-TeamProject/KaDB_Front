@@ -2,7 +2,7 @@ import img from './temp.jpg'
 import img2 from './moojuk.jpg'
 import img3 from './lg.jpg'
 import img4 from './liv.jpg'
-
+import img5 from './r4.jpg'
 const post = {
     title: "2019.07.07 ~ 08.13 나의 첫 유럽 여행기", category: "유럽 여행", schedule: [
         {
@@ -28,13 +28,13 @@ const post = {
                 },
 
                 {
-                    place: "버밍엄 국제공항",
-                    text: "오오오오 오오 오오오오오 오오오오오 오오 (무! 적! L! G!) 오오오오 오오 오오오오오 오오오오오 오오 (무! 적! L! G!)사랑한다 (사!랑!한!다!) 나의 LG여 (나!의!L!G!) 사랑한다 (사!랑!한!다!) 나의 LG여 (나!의!L!G!)영원하라 (영!원!하!라!) 무적 LG여 (무!적!L!G!)  영원하라 (영!원!하!라!) 무적 LG여 (무!적!L!G!)오오오오 오오 오오오오오 오오오오오 오오 (무! 적! L! G!) 오오오오 오오 오오오오오 오오오오오 오오 (무! 적! L! G!)",
-                    images: [img],
-                    tags: ["공항", "입국"],
+                    place: "타워 브리지",
+                    text: "타워 브리지는 걸어서 이동할 수 있을만한 거리였습니다!!다들 긴 도보여행에 지친 와중이였지만 날씨도 너무 좋고 이야기하면서 걷다보니 어느세 도착해서 지나갈뻔 했어요..ㅋㅋㅋㅋ그런데 어떻게 지나가겠습니까!!이런 멋진 풍경을!!!저희는 타워브리지를 보고 감격했어요...진짜 사진에서 보던 타워 브리지가 우리 앞에 있구나....",
+                    images: [img5],
+                    tags: ["랜드마크", "다리", "야경 맛집"],
                     transports: [
-                        { transport: "고속버스", transport_name: "고속버스", money: "0", time: "1시간" }, 
-                        { transport: "도보", transport_name: "도보", money: "0", time: "10분" }
+                        { transport: "도보", transport_name: "도보", money: "0", time: "20분" }, 
+                        { transport: "버스", transport_name: "2번버스", money: "10,000", time: "10분" }
                     ]
                 },
             ]
