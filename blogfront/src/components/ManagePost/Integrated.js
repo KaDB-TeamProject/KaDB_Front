@@ -190,6 +190,8 @@ function ManagePost() {
   const [cty, setCty] = useState("");
   const [index1, setIndex1] = useState();
   const [index2, setIndex2] = useState();
+  const [selectCate, setSelectCate] = useState(); //카테고리 값 저장
+  const [tit, setTit] = useState() //제목 값 저장
 
   const closeWindow = (val) => {
     setClick(val);
@@ -205,11 +207,23 @@ function ManagePost() {
     setClick4(val)
   }
 
+  const setCategory = (val)=> {
+
+    setSelectCate(val);
+
+  }
+  
+  const setTitle = (val) =>{
+
+    setTit(val);
+    console.log(tit)
+  }
+
   return (
     <Container>
       <GlobalStyle />
-      <CategorySelector />
-      <TitleBox />
+      <CategorySelector setCategory = {setCategory}/>
+      <TitleBox setTitle = {setTitle}/>
 
       <PostTitle>POST</PostTitle>
 
@@ -222,7 +236,7 @@ function ManagePost() {
                   <PostBoxTitle>
                     {i + 1}일차 {c.city}
                   </PostBoxTitle>
-                  <SaveButton>저장</SaveButton>
+                  <SaveButton>{selectCate}</SaveButton>
                 </HeaderBox>
 
                 {Array.isArray(c.place) &&
