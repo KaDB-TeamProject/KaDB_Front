@@ -118,7 +118,7 @@ function PlacePopUp(props) {
 
                 <InputContainer sendName={getName} sendTime={getTime} sendBudget={getBudget}/>
 
-                <Button onClick={() =>{ props.closeWindow(false); props.sendTransport(transport)}}>제출하기</Button>
+                <Button onClick={() =>{ props.closeWindow(false);  props.addTransport(transport)}}>제출하기</Button>
             </CityBox>
 
         </Container>
