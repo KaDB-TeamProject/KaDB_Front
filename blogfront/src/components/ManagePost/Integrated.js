@@ -195,15 +195,7 @@ function ManagePost() {
   const [tit, setTit] = useState() //제목 값 저장
   const [date, setDate] = useState([
     {
-      paragraph: [
-        {
-          place: '',
-          text: '',
-          images: [],
-          tags: [],
-          transports: [{ transport: '', transport_name: '', money: '', time: '' }],
-        },
-      ],
+      paragraph: [],
     },
   ]); //일자별 데이터 저장
   const [transport, setTransport] = useState({transport: "", transport_name: "", money: "", time: ""})
@@ -243,7 +235,7 @@ function ManagePost() {
       <TitleBox setTitle={setTitle} />
       <PostTitle>POST</PostTitle>
 
-      {container.map(function (c, i) {
+      {date.map(function (c, i) {
         return (
           <Postcontainer>
             <Posts>
@@ -259,12 +251,12 @@ function ManagePost() {
                   />
                 </HeaderBox>
 
-                {Array.isArray(c.place) &&
-                  c.place.map((p, k) => {
+                {Array.isArray(c.paragraph) &&
+                  c.paragraph.map((p, k) => {
                     return (
                       <div key={k}>
                         <PostItemBox>
-                          <PlaceTitle>{p.p}</PlaceTitle>
+                          <PlaceTitle>{p.place}</PlaceTitle>
                           <PostInput />
                         </PostItemBox>
                       </div>
@@ -280,8 +272,6 @@ function ManagePost() {
                       setClick3(false);
                       setClick4(false);
                       setIndex2(i);
-                      console.log(container);
-                      console.log(container.place);
                     }}
                   >
                     장소 추가
@@ -289,9 +279,9 @@ function ManagePost() {
 
                   <ManageButton
                     onClick={() => {
-                      const newContainer = [...container];
+                      const newContainer = [...date];
 
-                      if (place.length > 0) {
+                      if (c.paragraph.length > 0) {
                         newContainer[i].place.splice(
                           newContainer[i].place.length - 1,
                           1
@@ -330,10 +320,10 @@ function ManagePost() {
                     setCty(cit);
                   }}
                   addContainer={() => {
-                    const newItem = { city: "" };
-                    newItem.city = cty;
+                    const newItem = {};
+                    //newItem.city = cty;
 
-                    SetContainer((prev) => {
+                    setDate((prev) => {
                       const updatedContainer = [
                         ...prev.slice(0, index1 + 1),
                         newItem,
@@ -350,7 +340,7 @@ function ManagePost() {
                   addBox={() => {
                     const newPlace = { p: place };
 
-                    const newContainer = [...container];
+                    const newContainer = [...date];
 
                     if (newContainer[index2]?.place) {
                       newContainer[index2].place.push(newPlace);
@@ -358,7 +348,7 @@ function ManagePost() {
                       newContainer[index2].place = [newPlace];
                     }
 
-                    SetContainer(newContainer);
+                    setDate(newContainer);
                   }}
                   setPlace={(val) => {
                     const p = val;
@@ -378,21 +368,17 @@ function ManagePost() {
                   setClick4(false);
                   setIndex1(i);
                 }}
-              >
-                일정 추가하기
-              </AddButton>
+              >일정 추가하기</AddButton>
 
               <EmptyBox />
 
               <AddButton
                 onClick={() => {
-                  const newContainer = [...container];
+                  const newContainer = [...date];
                   newContainer.splice(i, 1);
-                  SetContainer(newContainer);
+                  setDate(newContainer);
                 }}
-              >
-                일정 제거하기
-              </AddButton>
+              >일정 제거하기</AddButton>
             </PostButton>
           </Postcontainer>
         );
