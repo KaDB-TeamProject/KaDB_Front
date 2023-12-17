@@ -18,7 +18,14 @@ outline: none;
 
 function InputBox(props){
 
-return <Input placeholder={props.text} />
+    const getValue = (e) =>{
+
+        const val = e.target.value;
+        props.onchange(val);
+
+    }
+
+return <Input placeholder={props.text} onChange={getValue}/>
 
 }
 

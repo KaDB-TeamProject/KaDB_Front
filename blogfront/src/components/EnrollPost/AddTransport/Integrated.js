@@ -5,7 +5,7 @@ function Integrated(props){
 
 return(
 <>
-<TransportPopUp closeWindow={props.closeWindow3} />
+<TransportPopUp closeWindow={props.closeWindow3} sendTransport={props.sendTransport} />
 </>
 )
 }
